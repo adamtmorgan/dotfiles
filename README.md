@@ -46,7 +46,7 @@ export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
 2.  Install manually via [nerdfonts.com](https://www.nerdfonts.com/font-downloads) or via Homebrew
 
 ```bash
-brew tap homebrew/cask-fonts`
+brew tap homebrew/cask-fonts
 brew install -cask font-jetbrains-mono-nerd-font
 ```
 
