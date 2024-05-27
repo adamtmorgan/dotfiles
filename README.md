@@ -2,15 +2,22 @@
 
 This is the home of my various dev workspace configurations that collectively make up my development environment. Setup guide is included mainly to make it easier to migrate my setup to new systems, but anyone interested is welcome to reference, customize, or take these configurations for themselves.
 
-## Overview
-
 My workspace/dev environment consists of the following main pieces:
 
-- MacOS
-- [Alacritty](https://www.alacritty.org/)
-- [Starship](https://starship.rs/)
-- [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
-- [Neovim](https://neovim.io/)
+- Notable Apps (Under MacOS)
+  - [Raycast](https://www.raycast.com/) - App launcher and quick-commands.
+  - [Rectangle Pro](https://rectangleapp.com/pro) - Window management.
+  - [Sublime Merge](https://www.sublimemerge.com/) - Git client.
+  - [Paw/RapidAPI](https://paw.cloud/) - REST/gRPC/GraphQL client.
+  - [Obsidian](https://obsidian.md/) - Markdown note taking.
+  - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
+  - [TablePlus](https://tableplus.com/) - Database client.
+  - [DataGrip](https://www.jetbrains.com/datagrip/?var=light) - Database Client
+- CLI Setup (what this repo is all about):
+  - [Alacritty](https://www.alacritty.org/)
+  - [Starship](https://starship.rs/)
+  - [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
+  - [Neovim](https://neovim.io/)
 
 # Setup
 
@@ -107,5 +114,29 @@ brew install tmux
 
 2.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf`
     1. This should reside in your home directory.
+
+```bash
+cp configs/tmux.conf ~/.tmux.conf
+```
+
 3.  Open tmux by running `tmux`
 4.  Press `Ctrl+Space`, which is the mapped prefix for this config, followed by `I` to install plugins.
+
+# Usage and Workflow
+
+My workflow revolves largely around using Tmux for window management and resurrection features. I don't really prefer to split terminal windows - the only time I do that is during coding, which I let Neovim handle.
+
+### Tmux Keybindings
+
+- `C-Space` - Prefix/Leader
+- `prefix-c` - Create window
+- `prefix-l` - Next window
+- `prefix-h` - Previous window
+- `prefix-Ctrl+s` - Save session
+- `prefix-Ctrl+r` - Resurrect session
+
+Everything else should be default.
+
+### Code Editing in Neovim
+
+See [my Neovim config](https://github.com/adamtmorgan/NvAdam) for details on custom Neovim bindings and workflow.
