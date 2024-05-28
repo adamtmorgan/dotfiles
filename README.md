@@ -20,9 +20,7 @@ My workspace/dev environment consists of the following main pieces:
   - [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
   - [Neovim](https://neovim.io/)
 
-# Setup
-
-### MacOS
+# MacOS
 
 1.  Make sure MacOS is up to date.
 2.  Download and install [Homebrew](https://brew.sh/)
@@ -41,7 +39,7 @@ You can add it to .zshrc path by executing the following:
 export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
 ```
 
-## Fonts
+# Fonts
 
 1.  I use JetBrainsMono Nerd Font
 2.  Install manually via [nerdfonts.com](https://www.nerdfonts.com/font-downloads) or via Homebrew
@@ -51,7 +49,7 @@ brew tap homebrew/cask-fonts
 brew install -cask font-jetbrains-mono-nerd-font
 ```
 
-### Terminal (Alacritty)
+# Terminal (Alacritty)
 
 1.  Install Alacritty via Homebrew
 
@@ -69,7 +67,7 @@ cp configs/tmux.conf ~/.tmux.conf
     - To disable: `defaults write org.alacritty AppleFontSmoothing -int 0`
     - To re-enable: `defaults delete org.alacritty AppleFontSmoothing`
 
-### Sexy Terminal Lines (Starship)
+# Sexy Terminal Lines (Starship)
 
 1.  Install [Starship](https://starship.rs/)
 
@@ -90,7 +88,7 @@ eval "$(starship init zsh)"
 cp configs/starship.toml ~/.config/starship.toml
 ```
 
-### Shell Auto Suggestions
+# Shell Auto Suggestions
 
 1. Install via homebrew
 
@@ -109,7 +107,7 @@ bindkey '^f' autosuggest-accept
 
 3. Once added, you should see suggestions based on command history. To accept a suggestion, hit the right arrow key or `Ctl+f`.
 
-### Code Editor (Neovim)
+# Code Editor (Neovim)
 
 1.  Install Neovim via Homebrew
 
@@ -128,7 +126,7 @@ mv ~/.config/NvAdam ~/.config/nvim
 5. Run `nvim` and follow instructions in the [NvAdam Readme](https://github.com/adamtmorgan/NvAdam)
 6. Make sure `lazy-nvim` propery loaded plugins and that necessary LSPs are installed via `Mason`.
 
-### Terminal Window Management (Tmux)
+# Terminal Window Management (Tmux)
 
 1.  Install Tmux via Homebrew
 
@@ -147,11 +145,21 @@ cp configs/tmux.conf ~/.tmux.conf
 4.  Press `Ctrl+Space`, which is the mapped `<prefix>` for this config, followed by `I` to install plugins.
 5.  Press `<prefix>+r` to reload Tmux.
 
+# Scripts
+
+To make it easier to update configs, I wrote simple bash scripts to collect and disperse configs to their default locations. If you're sick and tired of manually moving configs every update, this should make it much easier.
+
+To copy the repo's configs to their default locations, run the following:
+
+```bash
+bash disperse.sh
+```
+
 # Usage and Workflow
 
 My workflow revolves largely around using Tmux for window management and resurrection features. I don't really prefer to split terminal windows - the only time I do that is during coding, which I let Neovim handle.
 
-### Tmux Keybindings
+## Tmux Keybindings
 
 - `<C>space` - Prefix/Leader
 - `<prefix> + c` - Create window
@@ -162,16 +170,6 @@ My workflow revolves largely around using Tmux for window management and resurre
 
 Everything else should be default.
 
-### Code Editing in Neovim
+## Code Editing in Neovim
 
 See [my Neovim config](https://github.com/adamtmorgan/NvAdam) for details on custom Neovim bindings and workflow.
-
-# Scripts
-
-To make it easier to update configs, I wrote simple bash scripts to collect and disperse configs to their default locations. If you're sick and tired of manually moving configs every update, this should make it much easier.
-
-To copy the repo's configs to their default locations, run the following:
-
-```bash
-bash disperse.sh
-```
