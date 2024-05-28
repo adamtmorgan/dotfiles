@@ -59,8 +59,12 @@ brew install -cask font-jetbrains-mono-nerd-font
 brew instal --cask alacritty
 ```
 
-2.  Copy configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml`
-    1. This should reside in your home directory.
+2.  Copy configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml` or run my [disperse script](##Scripts).
+
+```bash
+cp configs/tmux.conf ~/.tmux.conf
+```
+
 3.  Optional: disable font smoothing. I find that font smoothing on MacOS inside of Alacritty to be a little too fuzzy for my taste.
     - To disable: `defaults write org.alacritty AppleFontSmoothing -int 0`
     - To re-enable: `defaults delete org.alacritty AppleFontSmoothing`
@@ -73,14 +77,14 @@ brew instal --cask alacritty
 brew instal starship
 ```
 
-2. Turn it on for your shell. This will change depending on which shell you're using. For zsh, use the following:
+2. Turn it on for your shell. This will change depending on which shell you're using. For zsh, add the following to your `~/.zshrc` file:
 
 ```bash
 eval "$(starship init zsh)"
 ```
 
 3. If you're using another shell, consult the [Starship guide](https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship).
-4. Move my Starship config in this repo into your `~/.config` directory:
+4. Move my Starship config in this repo into your `~/.config` directory or run my [disperse script](##Scripts):
 
 ```bash
 cp configs/starship.toml ~/.config/starship.toml
@@ -132,15 +136,16 @@ mv ~/.config/NvAdam ~/.config/nvim
 brew install tmux
 ```
 
-2.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf`
-    1. This should reside in your home directory.
+2.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](##Scripts).
+    - This should reside in your home directory.
 
 ```bash
 cp configs/tmux.conf ~/.tmux.conf
 ```
 
 3.  Open tmux by running `tmux`
-4.  Press `Ctrl+Space`, which is the mapped prefix for this config, followed by `I` to install plugins.
+4.  Press `Ctrl+Space`, which is the mapped `<prefix>` for this config, followed by `I` to install plugins.
+5.  Press `<prefix>+r` to reload Tmux.
 
 # Usage and Workflow
 
@@ -148,15 +153,25 @@ My workflow revolves largely around using Tmux for window management and resurre
 
 ### Tmux Keybindings
 
-- `C-Space` - Prefix/Leader
-- `prefix-c` - Create window
-- `prefix-l` - Next window
-- `prefix-h` - Previous window
-- `prefix-Ctrl+s` - Save session
-- `prefix-Ctrl+r` - Resurrect session
+- `<C>space` - Prefix/Leader
+- `<prefix> + c` - Create window
+- `<prefix> + l` - Next window
+- `<prefix> + h` - Previous window
+- `<prefix> + <C>s` - Save session
+- `<prefix> + <C>r` - Resurrect session
 
 Everything else should be default.
 
 ### Code Editing in Neovim
 
 See [my Neovim config](https://github.com/adamtmorgan/NvAdam) for details on custom Neovim bindings and workflow.
+
+## Scripts
+
+To make it easier to update configs, I wrote simple bash scripts to collect and disperse configs to their default locations. If you're sick and tired of manually moving configs every update, this should make it much easier.
+
+To copy the repo's configs to their default locations, run the following:
+
+```bash
+bash disperse.sh
+```
