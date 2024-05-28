@@ -16,6 +16,7 @@ My workspace/dev environment consists of the following main pieces:
 - CLI Setup (what this repo is all about):
   - [Alacritty](https://www.alacritty.org/)
   - [Starship](https://starship.rs/)
+  - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   - [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
   - [Neovim](https://neovim.io/)
 
@@ -84,6 +85,25 @@ eval "$(starship init zsh)"
 ```bash
 cp configs/starship.toml ~/.config/starship.toml
 ```
+
+### Shell Auto Suggestions
+
+1. Install via homebrew
+
+```bash
+brew install zsh-autosuggestions
+```
+
+2. Add the following to your .zshrc file (most likely in `~`)
+
+```bash
+# Use zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Bind "Ctrl+f" to accept a suggestion.
+bindkey '^f' autosuggest-accept
+```
+
+3. Once added, you should see suggestions based on command history. To accept a suggestion, hit the right arrow key or `Ctl+f`.
 
 ### Code Editor (Neovim)
 
