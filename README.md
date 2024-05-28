@@ -59,7 +59,7 @@ brew install -cask font-jetbrains-mono-nerd-font
 brew instal --cask alacritty
 ```
 
-2.  Copy configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml` or run my [disperse script](##Scripts).
+2.  Copy configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml` or run my [disperse script](#Scripts).
 
 ```bash
 cp configs/tmux.conf ~/.tmux.conf
@@ -84,7 +84,7 @@ eval "$(starship init zsh)"
 ```
 
 3. If you're using another shell, consult the [Starship guide](https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship).
-4. Move my Starship config in this repo into your `~/.config` directory or run my [disperse script](##Scripts):
+4. Move my Starship config in this repo into your `~/.config` directory or run my [disperse script](#Scripts):
 
 ```bash
 cp configs/starship.toml ~/.config/starship.toml
@@ -136,7 +136,7 @@ mv ~/.config/NvAdam ~/.config/nvim
 brew install tmux
 ```
 
-2.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](##Scripts).
+2.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](#Scripts).
     - This should reside in your home directory.
 
 ```bash
@@ -166,7 +166,7 @@ Everything else should be default.
 
 See [my Neovim config](https://github.com/adamtmorgan/NvAdam) for details on custom Neovim bindings and workflow.
 
-## Scripts
+# Scripts
 
 To make it easier to update configs, I wrote simple bash scripts to collect and disperse configs to their default locations. If you're sick and tired of manually moving configs every update, this should make it much easier.
 
