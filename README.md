@@ -12,7 +12,7 @@ My workspace/dev environment consists of the following main pieces:
   - [Obsidian](https://obsidian.md/) - Markdown note taking.
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
-  - [DataGrip](https://www.jetbrains.com/datagrip/?var=light) - Database Client
+  - [DataGrip](https://www.jetbrains.com/datagrip/?var=light) - Database client
 - CLI Setup (what this repo is all about):
   - [Alacritty](https://www.alacritty.org/)
   - [Starship](https://starship.rs/)
@@ -30,8 +30,8 @@ My workspace/dev environment consists of the following main pieces:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-If using Apple Sillicon, you may need to add Homebrew to your $PATH in .zshrc. This is necessary
-since MacOS migrated to Zsh as its primary shell during the Apple Sillicon transition. Homebrew installs
+If using Apple Silicon, you may need to add Homebrew to your $PATH in .zshrc. This is necessary
+since MacOS migrated to Zsh as its primary shell during the Apple Silicon transition. Homebrew installs
 and adds the path to bash, as that used to be the default.
 
 You can add it to .zshrc path by executing the following:
