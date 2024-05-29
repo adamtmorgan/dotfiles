@@ -134,7 +134,13 @@ mv ~/.config/NvAdam ~/.config/nvim
 brew install tmux
 ```
 
-2.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](#Scripts).
+2. Install [TPM](https://github.com/tmux-plugins/tpm). This will manage our Tmux plugins. Clone the repo by running the following:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+3.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](#Scripts).
     - This should reside in your home directory.
 
 ```bash
