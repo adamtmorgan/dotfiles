@@ -19,6 +19,8 @@ My workspace/dev environment consists of the following main pieces:
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   - [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
   - [Neovim](https://neovim.io/)
+- Other notable utilities
+  - [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager) `brew install --cask git-credential-manager`
 
 # MacOS
 
