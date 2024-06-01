@@ -30,7 +30,7 @@ add_newline = true
 
 format = """
 [](#dfc5a4)\
-[ ](bg:#dfc5a4 fg:#090c0c)\
+[󱗞 ](bg:#dfc5a4 fg:#090c0c)\
 [](bg:#627d9a fg:#dfc5a4)\
 $directory\
 [](#627d9a)\
