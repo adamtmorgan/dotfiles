@@ -180,4 +180,4 @@ Everything else should be default.
 
 ## Code Editing in Neovim
 
-See [my Neovim config](https://github.com/adamtmorgan/NvAdam) for details on custom Neovim bindings and workflow.
+See [my Neovim config](https://github.com/adamtmorgan/NvStache) for details on custom Neovim bindings and workflow.
