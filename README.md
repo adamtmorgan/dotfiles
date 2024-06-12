@@ -15,6 +15,7 @@ My workspace/dev environment consists of the following main pieces:
   - [DataGrip](https://www.jetbrains.com/datagrip/?var=light) - Database client
 - CLI Setup (what this repo is all about):
   - [Alacritty](https://www.alacritty.org/)
+  - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   - [Starship](https://starship.rs/)
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   - [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
@@ -69,6 +70,20 @@ cp configs/tmux.conf ~/.tmux.conf
     - To disable: `defaults write org.alacritty AppleFontSmoothing -int 0`
     - To re-enable: `defaults delete org.alacritty AppleFontSmoothing`
 
+# Oh My Zsh (zsh themes)
+
+1.  Install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+2. Pick your theme from [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes) and add it to your `~/.zshrc` file:
+
+```bash
+ZSH_THEME="gallois"
+```
+
 # Sexy Terminal Lines (Starship)
 
 1.  Install [Starship](https://starship.rs/)
@@ -77,7 +92,7 @@ cp configs/tmux.conf ~/.tmux.conf
 brew instal starship
 ```
 
-2. Turn it on for your shell. This will change depending on which shell you're using. For zsh, add the following to your `~/.zshrc` file:
+2. Turn it on for your shell. This will change depending on which shell you're using. For zsh, add the following to the END of your `~/.zshrc` file. If not at the end, `ohmyzsh` will overwrite your power line:
 
 ```bash
 eval "$(starship init zsh)"
