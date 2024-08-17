@@ -38,7 +38,7 @@ and adds the path to bash, as that used to be the default.
 You can add it to .zshrc path by executing the following:
 
 ```bash
-export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
+$ export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
 ```
 
 ## Fonts
