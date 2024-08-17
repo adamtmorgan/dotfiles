@@ -1,6 +1,6 @@
 # My dotfiles
 
-This is the home of my various dev workspace configurations that collectively make up my development environment. Setup guide is included mainly to make it easier to migrate my setup to new systems, but anyone interested is welcome to reference, customize, or take these configurations for themselves.
+This is the home of my various dev workspace configurations that collectively make up my development environment. Setup guide is included mainly to make it easier to migrate my setup to new systems, but anyone interested is welcome to reference or fork these configurations for themselves.
 
 My workspace/dev environment consists of the following main pieces:
 
@@ -12,8 +12,7 @@ My workspace/dev environment consists of the following main pieces:
   - [Obsidian](https://obsidian.md/) - Markdown note taking.
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
-  - [DataGrip](https://www.jetbrains.com/datagrip/?var=light) - Database client
-- CLI Setup (what this repo is all about):
+- CLI Setup (what this repo is mainly about):
   - [Alacritty](https://www.alacritty.org/)
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   - [Starship](https://starship.rs/)
@@ -29,7 +28,7 @@ My workspace/dev environment consists of the following main pieces:
 2.  Download and install [Homebrew](https://brew.sh/)
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 If using Apple Silicon, you may need to add Homebrew to your $PATH in .zshrc. This is necessary
@@ -48,8 +47,8 @@ export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
 2.  Install manually via [nerdfonts.com](https://www.nerdfonts.com/font-downloads) or via Homebrew
 
 ```bash
-brew tap homebrew/cask-fonts
-brew install -cask font-jetbrains-mono-nerd-font
+$ brew tap homebrew/cask-fonts
+$ brew install -cask font-jetbrains-mono-nerd-font
 ```
 
 ## Terminal (Alacritty)
@@ -57,22 +56,14 @@ brew install -cask font-jetbrains-mono-nerd-font
 1.  Install Alacritty via Homebrew
 
 ```bash
-brew instal --cask alacritty
+$ brew instal --cask alacritty
 ```
 
-2.  Copy or link configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml` or run my [disperse script](#Scripts).
-
-::: code-group
-
-```bash [copy.sh]
-$ cp configs/tmux.conf ~/.tmux.conf
-```
+2.  Link or copy configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml` or run my [disperse script](#Scripts).
 
 ```bash [link.sh]
 $ ln -s configs/tmux.conf ~/.tmux.conf
 ```
-
-:::
 
 3.  Optional: disable font smoothing. I find that font smoothing on MacOS inside of Alacritty to be a little too fuzzy for my taste.
     - To disable: `defaults write org.alacritty AppleFontSmoothing -int 0`
@@ -107,19 +98,11 @@ eval "$(starship init zsh)"
 ```
 
 3. If you're using another shell, consult the [Starship guide](https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship).
-4. Move my Starship config in this repo into your `~/.config` directory or run my [disperse script](#Scripts):
-
-::: code-group
-
-```bash [copy]
-cp configs/starship.toml ~/.config/starship.toml
-```
+4. Link or move my Starship config in this repo into your `~/.config` directory or run my [disperse script](#Scripts):
 
 ```bash [link]
 ln -s configs/starship.toml ~/.config/starship.toml
 ```
-
-:::
 
 ## Shell Auto Suggestions
 
@@ -151,19 +134,10 @@ $ brew install neovim
 2. Clone my [NvStache](https://github.com/adamtmorgan/NvStache) repo from Github into your `~/.config` directory or wherever you store your Neovim configuration.
 3. Back up your old config, if present, and replace config directly with my NvStache repo or link it from a custom location.
 
-::: code-group
-
 ```bash [link]
 $ mv ~/.config/nvim ~/.config/nvim-bak
 $ ln -s ~/.config/NvStache ~/.config/nvim
 ```
-
-```bash [move]
-$ mv ~/.config/nvim ~/.config/nvim-bak
-$ mv ~/.config/NvStache ~/.config/nvim
-```
-
-:::
 
 5. Run `nvim` and follow instructions in the [NvAdam Readme](https://github.com/adamtmorgan/NvAdam)
 6. Make sure `lazy-nvim` propery loaded plugins and that necessary LSPs are installed via `Mason`.
@@ -182,20 +156,12 @@ $ brew install tmux
 $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-3.  Copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](#Scripts).
+3.  Link or copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](#Scripts).
     - This should reside in your home directory.
-
-::: code-group
-
-```bash
-$ cp configs/tmux.conf ~/.tmux.conf
-```
 
 ```bash
 $ ln -s configs/tmux.conf ~/.tmux.conf
 ```
-
-:::
 
 3.  Open tmux by running `tmux`
 4.  Press `Ctrl+Space`, which is the mapped `<prefix>` for this config, followed by `I` to install plugins.
