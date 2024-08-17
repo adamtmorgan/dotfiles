@@ -169,9 +169,8 @@ $ ln -s configs/tmux.conf ~/.tmux.conf
 
 ## Scripts
 
-To make it easier to update configs, I wrote simple bash scripts to collect and disperse configs to their default locations. If you're sick and tired of manually moving configs every update, this should make it much easier.
-
-To copy the repo's configs to their default locations, run the following:
+To speed up installs, I wrote a simple bash script to symlink configs to their default locations from the directory of this repo. This way you can manage dotfiles in a single space and changes will be updated automatically when updating.
+To create symlinks for all configs in this repo, run the following:
 
 ```bash
 $ bash disperse.sh
@@ -190,7 +189,7 @@ My workflow revolves largely around using Tmux for window management and resurre
 - `<prefix> + <C>s` - Save session
 - `<prefix> + <C>r` - Resurrect session
 
-Everything else should be default.
+Everything else uses default bindings.
 
 ## Code Editing in Neovim
 
