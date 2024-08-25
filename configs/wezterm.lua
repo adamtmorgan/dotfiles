@@ -5,8 +5,10 @@ local act = wezterm.action
 
 -- Appearance ---------------------------------------------------
 
+-- Font
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false })
 
+-- Tab bar styling
 config.use_fancy_tab_bar = true
 config.window_frame = {
 	active_titlebar_bg = "#1C1E25",
@@ -14,7 +16,7 @@ config.window_frame = {
 	font_size = 12.0,
 }
 
--- For example, changing the color scheme:
+-- Custom colors
 config.colors = {
 	cursor_bg = "#FF9E3B",
 	cursor_border = "#FF9E3B",
@@ -33,6 +35,7 @@ config.colors = {
 	},
 }
 
+-- Window settings
 config.window_background_opacity = 0.90
 config.macos_window_background_blur = 50
 config.window_decorations = "RESIZE"
@@ -55,12 +58,21 @@ config.keys = {
 	{
 		key = "|",
 		mods = "CMD|SHIFT",
-		action = wezterm.action.SplitPane({
+		action = act.SplitPane({
 			direction = "Right",
 			size = { Percent = 50 },
 		}),
 	},
+	{
+		key = ")",
+		mods = "CMD|SHIFT",
+		action = act.MoveTabRelative(1),
+	},
+	{
+		key = "(",
+		mods = "CMD|SHIFT",
+		action = act.MoveTabRelative(-1),
+	},
 }
 
--- and finally, return the configuration to wezterm
 return config

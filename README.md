@@ -165,6 +165,8 @@ My workflow revolves largely around using Wezterm for tab and split management. 
 1. Split vertical - `Cmd+Shift+|`
 2. Navigate left pane - `Cmd+Shift+h`
 3. Navigate right pane - `Cmd+Shift+l`
+4. Move Tab Left - `Cmd+Shift+(`
+5. Move Tab Right - `Cmd+Shift+)`
 
 ## Code Editing in Neovim
 
