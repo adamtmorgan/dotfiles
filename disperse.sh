@@ -32,8 +32,8 @@ function try_link() {
 echo "Linking files from repo at path $SCRIPT_DIR..."
 echo
 
-# Move Alacritty config
-try_link "Alacritty" "$SCRIPT_DIR/configs/alacritty.toml" "$HOME/.alacritty.toml"
+# Move Wezterm config
+try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm.lua" "$HOME/.wezterm.lua"
 
 # Move Tmux config
 try_link "Tmux" "$SCRIPT_DIR/configs/tmux.conf" "$HOME/.tmux.conf"

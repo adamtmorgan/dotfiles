@@ -13,11 +13,10 @@ My workspace/dev environment consists of the following main pieces:
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
-  - [Alacritty](https://www.alacritty.org/)
+  - [Wezterm](https://wezfurlong.org/wezterm/)
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   - [Starship](https://starship.rs/)
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-  - [Tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
   - [Neovim](https://neovim.io/)
 - Other notable utilities
   - [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager) `brew install --cask git-credential-manager`
@@ -51,23 +50,31 @@ $ brew tap homebrew/cask-fonts
 $ brew install -cask font-jetbrains-mono-nerd-font
 ```
 
-## Terminal (Alacritty)
+## Terminal (Wezterm)
 
-1.  Install Alacritty via Homebrew
+I used to use Alacritty + Tmux, but noticed some pretty significant latency when working in NeoVim with this combo. Switching to Wezterm and using its built-in tabs and window splits has sped things up for me considerably. I do miss some Tmux perks, but ultimately the additional performance overhead wasn't worth it to me.
+
+1.  Install Wezterm via Homebrew
 
 ```bash
-$ brew instal --cask alacritty
+$ brew instal --cask wezterm
 ```
 
-2.  Link or copy configuration from `configs/alacritty.toml` of this repo to `~/.alacritty.toml` or run my [disperse script](#Scripts).
+2. Link or copy configuration from `configs/wezterm.lua` of this repo to `~/.wezterm.lua` or run my [disperse script](#Scripts).
 
 ```bash [link.sh]
-$ ln -s configs/tmux.conf ~/.tmux.conf
+$ ln -s configs/wezterm.lua ~/.wezterm.lua
 ```
 
-3.  Optional: disable font smoothing. I find that font smoothing on MacOS inside of Alacritty to be a little too fuzzy for my taste.
-    - To disable: `defaults write org.alacritty AppleFontSmoothing -int 0`
-    - To re-enable: `defaults delete org.alacritty AppleFontSmoothing`
+3. Tab renaming. Wezterm provides a CLI command for this, but it's a bit wordy for my taste. I instead recommend creating a function in your `.zshrc` file to make this faster.
+
+```bash [.zshrc]
+$ rename-tab() {
+$   wezterm cli set-tab-title "$1"
+$ }
+```
+
+With this done, you can now rename a tab by running `rename-tab [tab-name]`.
 
 ## Oh My Zsh (zsh themes)
 
@@ -141,31 +148,6 @@ $ ln -s ~/.config/NvStache ~/.config/nvim
 
 5. Run `nvim` and follow instructions in the [NvAdam Readme](https://github.com/adamtmorgan/NvAdam)
 6. Make sure `lazy-nvim` propery loaded plugins and that necessary LSPs are installed via `Mason`.
-
-## Terminal Window Management (Tmux)
-
-1.  Install Tmux via Homebrew
-
-```bash
-$ brew install tmux
-```
-
-2. Install [TPM](https://github.com/tmux-plugins/tpm). This will manage our Tmux plugins. Clone the repo by running the following:
-
-```bash
-$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-3.  Link or copy configuration from `configs/tmux.conf` of this repo to `~/.tmux.conf` or run my [disperse script](#Scripts).
-    - This should reside in your home directory.
-
-```bash
-$ ln -s configs/tmux.conf ~/.tmux.conf
-```
-
-3.  Open tmux by running `tmux`
-4.  Press `Ctrl+Space`, which is the mapped `<prefix>` for this config, followed by `I` to install plugins.
-5.  Press `<prefix>+r` to reload Tmux.
 
 ## Scripts
 
