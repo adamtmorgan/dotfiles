@@ -44,12 +44,12 @@ config.keys = {
 	-- be potentially recognized and handled by the tab
 	{
 		key = "h",
-		mods = "CMD",
+		mods = "CMD|SHIFT",
 		action = act.ActivatePaneDirection("Left"),
 	},
 	{
 		key = "l",
-		mods = "CMD",
+		mods = "CMD|SHIFT",
 		action = act.ActivatePaneDirection("Right"),
 	},
 	{

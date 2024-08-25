@@ -160,18 +160,11 @@ $ bash disperse.sh
 
 ## Usage and Workflow
 
-My workflow revolves largely around using Tmux for window management and resurrection features. I don't really prefer to split terminal windows - the only time I do that is during coding, which I let Neovim handle.
+My workflow revolves largely around using Wezterm for tab and split management. Most shortcuts are default, except for the following:
 
-## Tmux Keybindings
-
-- `<C>space` - Prefix/Leader
-- `<prefix> + c` - Create window
-- `<prefix> + l` - Next window
-- `<prefix> + h` - Previous window
-- `<prefix> + <C>s` - Save session
-- `<prefix> + <C>r` - Resurrect session
-
-Everything else uses default bindings.
+1. Split vertical - `Cmd+Shift+|`
+2. Navigate left pane - `Cmd+Shift+h`
+3. Navigate right pane - `Cmd+Shift+l`
 
 ## Code Editing in Neovim
 
