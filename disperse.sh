@@ -35,8 +35,5 @@ echo
 # Move Wezterm config
 try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm.lua" "$HOME/.wezterm.lua"
 
-# Move Tmux config
-try_link "Tmux" "$SCRIPT_DIR/configs/tmux.conf" "$HOME/.tmux.conf"
-
 # Move Starship config
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
