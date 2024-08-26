@@ -11,7 +11,7 @@ config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic 
 -- Tab bar styling
 config.use_fancy_tab_bar = true
 config.window_frame = {
-	active_titlebar_bg = "#1B1825",
+	active_titlebar_bg = "#1A1923",
 	inactive_titlebar_bg = "#1B1825",
 	font_size = 12.0,
 }
@@ -21,7 +21,7 @@ config.colors = {
 	cursor_bg = "#FF9E3B",
 	cursor_border = "#FF9E3B",
 	cursor_fg = "000000",
-	background = "#1B1825",
+	background = "#201F2B",
 	tab_bar = {
 		inactive_tab_edge = "None",
 		active_tab = {
@@ -29,14 +29,14 @@ config.colors = {
 			fg_color = "#ffffff",
 		},
 		inactive_tab = {
-			bg_color = "#1B1825",
+			bg_color = "#201F2B",
 			fg_color = "#DCD7BA",
 		},
 	},
 }
 
 -- Window settings
-config.window_background_opacity = 0.94
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 80
 config.window_decorations = "RESIZE"
 
