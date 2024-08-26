@@ -7,6 +7,7 @@ local act = wezterm.action
 
 -- Font
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false })
+config.font_size = 12
 
 -- Tab bar styling
 config.use_fancy_tab_bar = true
