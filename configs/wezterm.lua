@@ -40,6 +40,11 @@ config.window_background_opacity = 0.90
 config.macos_window_background_blur = 50
 config.window_decorations = "RESIZE"
 
+-- Misc other settings
+
+-- Disable ligeratures
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+
 -- Keymaps --------------------------------------------------------
 
 config.keys = {
