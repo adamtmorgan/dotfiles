@@ -37,7 +37,7 @@ config.colors = {
 
 -- Window settings
 config.window_background_opacity = 0.90
-config.macos_window_background_blur = 50
+config.macos_window_background_blur = 80
 config.window_decorations = "RESIZE"
 
 -- Keymaps --------------------------------------------------------
