@@ -36,8 +36,8 @@ config.colors = {
 }
 
 -- Window settings
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 80
+config.window_background_opacity = 0.94
+config.macos_window_background_blur = 70
 config.window_decorations = "RESIZE"
 
 -- Misc other settings
