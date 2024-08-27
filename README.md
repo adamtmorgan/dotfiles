@@ -40,6 +40,12 @@ You can add it to .zshrc path by executing the following:
 $ export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
 ```
 
+If things still aren't working, try adding the following to your `.zprofile` file:
+
+```bash
+$ eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
 ## Fonts
 
 1.  I use JetBrainsMono Nerd Font
