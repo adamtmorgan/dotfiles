@@ -149,10 +149,10 @@ $ brew install neovim
 
 ```bash [link]
 $ mv ~/.config/nvim ~/.config/nvim-bak
-$ ln -s ~/.config/NvStache ~/.config/nvim
+$ ln -s [path-to-nvstache-config-dir] ~/.config/nvim
 ```
 
-5. Run `nvim` and follow instructions in the [NvAdam Readme](https://github.com/adamtmorgan/NvAdam)
+5. Run `nvim` and follow instructions in the [NvStache Readme](https://github.com/adamtmorgan/NvStache)
 6. Make sure `lazy-nvim` propery loaded plugins and that necessary LSPs are installed via `Mason`.
 
 ## Scripts
