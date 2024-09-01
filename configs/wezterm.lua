@@ -27,12 +27,16 @@ config.colors = {
 	tab_bar = {
 		inactive_tab_edge = "None",
 		active_tab = {
-			bg_color = "#3C3E50",
-			fg_color = "#ffffff",
+			bg_color = "#1c2129",
+			fg_color = "#E2DCC0",
 		},
 		inactive_tab = {
 			bg_color = "#1c2129",
-			fg_color = "#DCD7BA",
+			fg_color = "#60687e",
+		},
+		new_tab = {
+			bg_color = "#1c2129",
+			fg_color = "#E2DCC0",
 		},
 	},
 }
