@@ -12,8 +12,8 @@ config.font_size = 12
 -- Tab bar styling
 config.use_fancy_tab_bar = true
 config.window_frame = {
-	active_titlebar_bg = "#1c2129",
-	inactive_titlebar_bg = "#1c2129",
+	active_titlebar_bg = "#1c2125",
+	inactive_titlebar_bg = "#1c2125",
 	font_size = 12.0,
 }
 
@@ -22,20 +22,20 @@ config.colors = {
 	cursor_bg = "#FF9E3B",
 	cursor_border = "#FF9E3B",
 	cursor_fg = "000000",
-	background = "#1c2129",
+	background = "#1c2125",
 
 	tab_bar = {
 		inactive_tab_edge = "None",
 		active_tab = {
-			bg_color = "#1c2129",
+			bg_color = "#1c2125",
 			fg_color = "#E2DCC0",
 		},
 		inactive_tab = {
-			bg_color = "#1c2129",
+			bg_color = "#1c2125",
 			fg_color = "#60687e",
 		},
 		new_tab = {
-			bg_color = "#1c2129",
+			bg_color = "#1c2125",
 			fg_color = "#E2DCC0",
 		},
 	},
