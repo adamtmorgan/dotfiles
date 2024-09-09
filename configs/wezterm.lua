@@ -49,7 +49,7 @@ config.window_decorations = "RESIZE"
 -- Misc other settings
 
 -- Disable ligeratures
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+-- config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 -- Keymaps --------------------------------------------------------
 
