@@ -9,6 +9,9 @@ local act = wezterm.action
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false })
 config.font_size = 12
 
+local bg = "#1c2125"
+local fg = "#E2DCC0"
+
 -- Tab bar styling
 config.use_fancy_tab_bar = true
 config.window_frame = {
@@ -22,21 +25,26 @@ config.colors = {
 	cursor_bg = "#FF9E3B",
 	cursor_border = "#FF9E3B",
 	cursor_fg = "000000",
-	background = "#1c2125",
+	background = bg,
 
 	tab_bar = {
 		inactive_tab_edge = "None",
 		active_tab = {
-			bg_color = "#1c2125",
-			fg_color = "#E2DCC0",
+			bg_color = bg,
+			fg_color = fg,
 		},
 		inactive_tab = {
-			bg_color = "#1c2125",
+			bg_color = bg,
 			fg_color = "#60687e",
 		},
+		inactive_tab_hover = {
+			bg_color = bg,
+			fg_color = fg,
+			italic = true,
+		},
 		new_tab = {
-			bg_color = "#1c2125",
-			fg_color = "#E2DCC0",
+			bg_color = bg,
+			fg_color = fg,
 		},
 	},
 }
