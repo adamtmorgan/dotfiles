@@ -1,0 +1,5 @@
+gui:
+  theme:
+    selectedLineBgColor:
+      - "#3D3E50"
+  nerdFontsVersion: "3"

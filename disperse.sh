@@ -29,11 +29,28 @@ function try_link() {
     fi
 }
 
+# Creates dir path for configs
+function create_path() {
+    configName=$1
+    destinationPath=$2
+
+    if [ -d destinationPath ]; then
+        echo "Path for $configName already exists..."
+    elif [ ! -e "$destinationPath" ]; then
+        mkdir -p "$destinationPath"
+        echo "Created config dir path for $configName: $destinationPath"
+    fi
+}
+
 echo "Linking files from repo at path $SCRIPT_DIR..."
 echo
 
-# Move Wezterm config
+# Link Wezterm config
 try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm.lua" "$HOME/.wezterm.lua"
 
-# Move Starship config
+# Link Starship config
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
+
+# Link Lazygit config
+#create_path "Lazygit" "$CONFIG_DIR/lazygit"
+#try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
