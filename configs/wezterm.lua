@@ -75,12 +75,24 @@ config.keys = {
 		action = act.ActivatePaneDirection("Right"),
 	},
 	{
+		key = "j",
+		mods = "CMD|SHIFT",
+		action = act.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "CMD|SHIFT",
+		action = act.ActivatePaneDirection("Up"),
+	},
+	{
 		key = "|",
 		mods = "CMD|SHIFT",
-		action = act.SplitPane({
-			direction = "Right",
-			size = { Percent = 50 },
-		}),
+		action = act.SplitHorizontal({}),
+	},
+	{
+		key = "-",
+		mods = "CMD|SHIFT",
+		action = act.SplitVertical({}),
 	},
 	{
 		key = ")",
