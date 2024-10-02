@@ -7,6 +7,11 @@ local act = wezterm.action
 
 -- Font
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold", italic = false })
+-- config.freetype_load_flags = "NO_HINTING"
+-- config.front_end = "OpenGL"
+-- config.freetype_load_target = "Light"
+-- config.freetype_render_target = "HorizontalLcd"
+-- config.cell_width = 0.9
 config.font_size = 12
 -- config.line_height = 1.05
 
