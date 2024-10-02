@@ -6,7 +6,7 @@ local act = wezterm.action
 -- Appearance ---------------------------------------------------
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold", italic = false })
 config.font_size = 12
 -- config.line_height = 1.05
 
