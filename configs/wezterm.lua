@@ -6,7 +6,8 @@ local act = wezterm.action
 -- Appearance ---------------------------------------------------
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold", italic = false })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false })
+-- config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold", italic = false })
 -- config.freetype_load_flags = "NO_HINTING"
 -- config.front_end = "OpenGL"
 -- config.freetype_load_target = "Light"
