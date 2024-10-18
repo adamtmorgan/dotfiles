@@ -111,6 +111,11 @@ config.keys = {
 		mods = "CMD|SHIFT",
 		action = act.MoveTabRelative(-1),
 	},
+	{
+		key = "T",
+		mods = "CMD|SHIFT",
+		action = act.TogglePaneZoomState,
+	},
 }
 
 return config
