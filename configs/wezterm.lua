@@ -73,23 +73,43 @@ config.keys = {
 	-- be potentially recognized and handled by the tab
 	{
 		key = "h",
-		mods = "CMD|SHIFT",
+		mods = "CMD",
 		action = act.ActivatePaneDirection("Left"),
 	},
 	{
 		key = "l",
-		mods = "CMD|SHIFT",
+		mods = "CMD",
 		action = act.ActivatePaneDirection("Right"),
 	},
 	{
 		key = "j",
-		mods = "CMD|SHIFT",
+		mods = "CMD",
 		action = act.ActivatePaneDirection("Down"),
 	},
 	{
 		key = "k",
-		mods = "CMD|SHIFT",
+		mods = "CMD",
 		action = act.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "h",
+		mods = "CMD|SHIFT",
+		action = act.AdjustPaneSize({ "Left", 5 }),
+	},
+	{
+		key = "l",
+		mods = "CMD|SHIFT",
+		action = act.AdjustPaneSize({ "Right", 5 }),
+	},
+	{
+		key = "j",
+		mods = "CMD|SHIFT",
+		action = act.AdjustPaneSize({ "Down", 5 }),
+	},
+	{
+		key = "k",
+		mods = "CMD|SHIFT",
+		action = act.AdjustPaneSize({ "Up", 5 }),
 	},
 	{
 		key = "|",
