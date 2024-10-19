@@ -68,6 +68,8 @@ config.window_decorations = "RESIZE"
 
 -- Keymaps --------------------------------------------------------
 
+config.leader = { key = "Space", mods = "CTRL" }
+
 config.keys = {
 	-- Turn off the default CMD-m Hide action, allowing CMD-m to
 	-- be potentially recognized and handled by the tab
@@ -135,6 +137,11 @@ config.keys = {
 		key = "T",
 		mods = "CMD|SHIFT",
 		action = act.TogglePaneZoomState,
+	},
+	{
+		key = "h",
+		mods = "LEADER",
+		action = act.HideApplication,
 	},
 }
 
