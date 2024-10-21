@@ -28,6 +28,7 @@ config.window_frame = {
 }
 
 -- Custom colors
+config.force_reverse_video_cursor = true
 config.colors = {
 	cursor_bg = "#FF9E3B",
 	cursor_border = "#FF9E3B",
