@@ -11,9 +11,12 @@ function try_link() {
     sourcePath=$2
     destinationPath=$3
 
-    if [ ! -f "$sourcePath" ]; then
+    if [[ ! -f "$sourcePath" && ! -d "$sourcePath" ]]; then
         echo "Config for $configName not found in repo."
-    elif [ ! -e "$destinationPath" ]; then
+        return 1
+    fi
+
+    if [ ! -e "$destinationPath" ]; then
         ln -s "$sourcePath" "$destinationPath"
         echo "Config for $configName was symlinked to $destinationPath."
     elif [ -L "$destinationPath" ]; then
@@ -53,6 +56,9 @@ try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.to
 
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
+
+# Link k9s config
+try_link "k9s" "$SCRIPT_DIR/configs/k9s" "$CONFIG_DIR/k9s"
 
 # Link Lazygit config
 #create_path "Lazygit" "$CONFIG_DIR/lazygit"
