@@ -15,6 +15,7 @@ My workspace/dev environment consists of the following main pieces:
 - CLI Setup (what this repo is mainly about):
   - [Wezterm](https://wezfurlong.org/wezterm/)
   - [fzf](https://github.com/junegunn/fzf)
+  - [fd](https://github.com/sharkdp/fd)
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   - [Starship](https://starship.rs/)
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
@@ -83,11 +84,12 @@ $ }
 
 With this done, you can now rename a tab by running `rename-tab [tab-name]`.
 
-## fzf - file and directory searching
+## fd + fzf - file and directory searching
 
-fzf is for fuzzy file-system searching.
+`fd` is a very fast alternative to `find`. `fzf` will fuzzy-find in those results and rank them.
 
 ```bash
+$ brew install fd
 $ brew install fzf
 ```
 
@@ -99,8 +101,9 @@ Then add the following to your `.zshrc` file...
 
 ... and then either restart your terminal or run `source ~/.zshrc`.
 
-Once this is done, you should have access to the `ff` function, which will open fzf and
-allow you to search the CWD for files and directories.
+Once this is done, you should have access to the `ff` function for searching files in the CWD, and `ffd` function for
+searching directories. These are custom functions that I (with help from ChatGPT) put together to pipe `fd` results into
+the `fzf` view, giving us the best of both worlds.
 
 ## Oh My Zsh (zsh themes)
 
