@@ -13,7 +13,8 @@ k9s:
     reactive: false
     noIcons: false
     defaultsToFullScreen: false
-    skin: catppuccin_mocha_transparent
+    # skin: catppuccin_mocha_transparent
+    skin: kanagawa
   skipLatestRevCheck: false
   disablePodCounting: false
   shellPod:
