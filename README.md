@@ -13,13 +13,13 @@ My workspace/dev environment consists of the following main pieces:
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
-  - [Wezterm](https://wezfurlong.org/wezterm/) - Terminal of choice
-  - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking
-  - [fd](https://github.com/sharkdp/fd) - Regex File system searching
-  - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - Pretty terminal colors
-  - [Starship](https://starship.rs/) - Fancy status line
-  - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Command history
-  - [Neovim](https://neovim.io/) - Text editor
+  - [Wezterm](https://wezfurlong.org/wezterm/) - Terminal of choice.
+  - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking.
+  - [fd](https://github.com/sharkdp/fd) - Regex File system searching.
+  - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - Pretty terminal colors.
+  - [Starship](https://starship.rs/) - Fancy status line.
+  - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Command history.
+  - [Neovim](https://neovim.io/) - Text editor.
 - Other notable utilities
   - [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager) `brew install --cask git-credential-manager`
 
