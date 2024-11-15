@@ -14,6 +14,7 @@ My workspace/dev environment consists of the following main pieces:
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
   - [Wezterm](https://wezfurlong.org/wezterm/)
+  - [fzf](https://github.com/junegunn/fzf)
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   - [Starship](https://starship.rs/)
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
@@ -81,6 +82,25 @@ $ }
 ```
 
 With this done, you can now rename a tab by running `rename-tab [tab-name]`.
+
+## fzf - file and directory searching
+
+fzf is for fuzzy file-system searching.
+
+```bash
+$ brew install fzf
+```
+
+Then add the following to your `.zshrc` file...
+
+```bash
+[ -f [path-to-repo]/configs/fzf_zsh.sh ] && source [path-to-repo]/configs/fzf_zsh.sh
+```
+
+... and then either restart your terminal or run `source ~/.zshrc`.
+
+Once this is done, you should have access to the `ff` function, which will open fzf and
+allow you to search the CWD for files and directories.
 
 ## Oh My Zsh (zsh themes)
 
