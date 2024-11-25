@@ -2,7 +2,9 @@
 
 # Creates symlinks from repo into their default locations in `~` and `~/.config`.
 
+OS=$(uname)
 CONFIG_DIR="$HOME/.config"
+APP_SUPPORT_DIR="$HOME/Library/Application Support"
 SCRIPT_DIR="$(dirname "$(realpath "$0")")" # path for script directory
 
 # Links a source to a destination and handles edge cases
@@ -58,7 +60,15 @@ try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.to
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
 
 # Link k9s config
-try_link "k9s" "$SCRIPT_DIR/configs/k9s" "$CONFIG_DIR/k9s"
+if [[ "$OS" == "Darwin" ]]; then
+    create_path "k9s" "$APP_SUPPORT_DIR/k9s"
+    try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$APP_SUPPORT_DIR/k9s/config.yaml"
+    try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$APP_SUPPORT_DIR/k9s/skins"
+elif [[ "$OS" == "Linux" ]]; then
+    create_path "k9s" "$CONFIG_DIR/k9s"
+    try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$CONFIG_DIR/k9s/config.yaml"
+    try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$CONFIG_DIR/k9s/skins"
+fi
 
 # Link Lazygit config
 #create_path "Lazygit" "$CONFIG_DIR/lazygit"
