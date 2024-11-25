@@ -135,7 +135,7 @@ config.keys = {
 		action = act.MoveTabRelative(-1),
 	},
 	{
-		key = "T",
+		key = "F",
 		mods = "CMD|SHIFT",
 		action = act.TogglePaneZoomState,
 	},
