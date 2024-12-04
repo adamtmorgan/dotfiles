@@ -108,7 +108,7 @@ the `fzf` view, giving us the best of both worlds.
 ## Lazygit (Git client)
 
 Lazygit is my Git client of choice. Great for quick commits, diffing, etc.
-(View the readme)[https://github.com/jesseduffield/lazygit/blob/master/README.md] for usage.
+[View the readme](https://github.com/jesseduffield/lazygit/blob/master/README.md) for usage.
 
 ```bash
 $ brew install lazygit
