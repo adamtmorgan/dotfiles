@@ -144,6 +144,25 @@ config.keys = {
 		mods = "LEADER",
 		action = act.HideApplication,
 	},
+
+	-- Session bindings
+	{ key = "s", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
+	{ key = "l", mods = "LEADER", action = wezterm.action({ EmitEvent = "load_session" }) },
+	{ key = "r", mods = "LEADER", action = wezterm.action({ EmitEvent = "restore_session" }) },
 }
+
+-- Session Manager plugin ------------------------------------------------
+
+local session_manager = require("wezterm-session-manager/session-manager")
+
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
 
 return config

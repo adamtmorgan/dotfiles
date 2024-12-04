@@ -39,9 +39,7 @@ function create_path() {
     configName=$1
     destinationPath=$2
 
-    if [ -d destinationPath ]; then
-        echo "Path for $configName already exists..."
-    elif [ ! -e "$destinationPath" ]; then
+    if [ ! -e "$destinationPath" ]; then
         mkdir -p "$destinationPath"
         echo "Created config dir path for $configName: $destinationPath"
     fi
@@ -51,7 +49,7 @@ echo "Linking files from repo at path $SCRIPT_DIR..."
 echo
 
 # Link Wezterm config
-try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm.lua" "$HOME/.wezterm.lua"
+try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 
 # Link Starship config
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
