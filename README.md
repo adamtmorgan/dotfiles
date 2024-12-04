@@ -7,13 +7,13 @@ My workspace/dev environment consists of the following main pieces:
 - Notable Apps (Under MacOS)
   - [Raycast](https://www.raycast.com/) - App launcher and quick-commands.
   - [Rectangle Pro](https://rectangleapp.com/pro) - Window management.
-  - [Sublime Merge](https://www.sublimemerge.com/) - Git client.
   - [Paw/RapidAPI](https://paw.cloud/) - REST/gRPC/GraphQL client.
   - [Obsidian](https://obsidian.md/) - Markdown note taking.
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
   - [Wezterm](https://wezfurlong.org/wezterm/) - Terminal of choice.
+  - [Lazygit](https://github.com/jesseduffield/lazygit) - Git client.
   - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking.
   - [fd](https://github.com/sharkdp/fd) - Regex File system searching.
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - Pretty terminal colors.
@@ -104,6 +104,15 @@ Then add the following to your `.zshrc` file...
 Once this is done, you should have access to the `ff` function for searching files in the CWD, and `ffd` function for
 searching directories. These are custom functions that I (with help from ChatGPT) put together to pipe `fd` results into
 the `fzf` view, giving us the best of both worlds.
+
+## Lazygit (Git client)
+
+Lazygit is my Git client of choice. Great for quick commits, diffing, etc.
+(View the readme)[https://github.com/jesseduffield/lazygit/blob/master/README.md] for usage.
+
+```bash
+$ brew install lazygit
+```
 
 ## Oh My Zsh (zsh themes)
 
