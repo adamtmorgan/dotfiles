@@ -25,4 +25,5 @@ dist-ssr
 *.sln
 *.sw?
 
+# Sessions are stored in the config root
 wezterm_state_*.json
