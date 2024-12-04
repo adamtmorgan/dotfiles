@@ -200,11 +200,15 @@ $ bash disperse.sh
 
 My workflow revolves largely around using Wezterm for tab and split management. Most shortcuts are default, except for the following:
 
+`<leader>` = `<C+Space>`
+
 1. Split vertical - `Cmd+Shift+|`
-2. Navigate left pane - `Cmd+Shift+h`
-3. Navigate right pane - `Cmd+Shift+l`
-4. Move Tab Left - `Cmd+Shift+(`
-5. Move Tab Right - `Cmd+Shift+)`
+2. Split horizontal - `Cmd+Shift+_`
+3. Navigate left pane - `Cmd+h`
+4. Navigate right pane - `Cmd+l`
+5. Move Tab Left - `Cmd+Shift+(`
+6. Move Tab Right - `Cmd+Shift+)`
+7. Hide Wezterm - `<leader>h`
 
 ## Code Editing in Neovim
 
