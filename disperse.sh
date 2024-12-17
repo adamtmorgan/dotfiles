@@ -54,6 +54,10 @@ try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 # Link Starship config
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
 
+# Link Lazygit config
+create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
+try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
+
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
 
@@ -67,7 +71,3 @@ elif [[ "$OS" == "Linux" ]]; then
     try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$CONFIG_DIR/k9s/config.yaml"
     try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$CONFIG_DIR/k9s/skins"
 fi
-
-# Link Lazygit config
-#create_path "Lazygit" "$CONFIG_DIR/lazygit"
-#try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"

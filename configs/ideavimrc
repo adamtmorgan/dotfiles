@@ -71,7 +71,7 @@ nmap gt :action gotoTypeDeclaration<CR>
 nmap <leader>cf :action ReformatCode<CR>
 nmap <leader>ca :action RefactorThis<CR>
 nmap <leader>rn :action RenameElement<CR>
-nmap gh :action QuickDocumentation<CR>
+nmap gh :action ShowQuickDoc<CR>
 
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)

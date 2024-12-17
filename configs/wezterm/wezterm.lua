@@ -16,6 +16,8 @@ config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic 
 config.font_size = 12
 -- config.line_height = 1.05
 
+config.color_scheme = "kanagawabones"
+
 local bg = "#1c2125"
 local fg = "#E2DCC0"
 
