@@ -58,6 +58,10 @@ try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.to
 create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
 try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
 
+# Link Ghostty config
+create_path "Ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
+try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty/config"
+
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
 

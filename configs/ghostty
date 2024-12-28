@@ -1,0 +1,65 @@
+#--------------------------------------------------
+# Settings
+#--------------------------------------------------
+
+# Theming
+theme = kanagawabones
+background = 1B2125
+
+# Font
+font-family = JetBrainsMono Nerd Font
+adjust-cell-height = 6%
+adjust-cell-width = 0%
+font-size = 12
+font-thicken = true
+
+# Cursor
+cursor-style = block
+cursor-style = block
+cursor-style-blink = false
+cursor-color = FF9D3C
+adjust-cursor-thickness = 4
+adjust-cursor-height = 20%
+shell-integration-features = no-cursor
+
+# Icon
+macos-icon-frame = beige
+macos-icon-screen-color = 1A2024
+macos-icon-ghost-color = DCD7BA
+
+# Window styling
+macos-titlebar-style = tabs
+window-vsync = true
+window-decoration = true
+background-opacity = 0.95
+background-blur-radius = 50
+window-padding-balance = true
+window-padding-x = 10
+window-padding-y = 10
+unfocused-split-opacity = 0.7
+quick-terminal-position = bottom
+window-height = 60
+window-width = 175
+
+# Behavior
+window-save-state = always
+mouse-hide-while-typing = true
+window-step-resize = false
+
+#--------------------------------------------------
+# Bindings
+#--------------------------------------------------
+
+keybind = command+h=ignore
+
+keybind = command+shift+l=goto_split:right
+keybind = command+shift+h=goto_split:left
+keybind = command+shift+k=goto_split:top
+keybind = command+shift+j=goto_split:bottom
+
+keybind = command+control+l=resize_split:right,20
+keybind = command+control+h=resize_split:left,20
+keybind = command+control+k=resize_split:up,20
+keybind = command+control+j=resize_split:down,20
+
+keybind = command+shift+f=toggle_split_zoom
