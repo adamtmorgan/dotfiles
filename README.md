@@ -197,6 +197,7 @@ My workflow revolves largely around using Ghostty for tab and split management. 
 4. Navigate right pane - `Cmd+shift+l`
 5. Navigate up pane - `Cmd+shift+k`
 6. Navigate down pane - `Cmd+shift+j`
+7. Focus/Zoom pane - `Cmd+shift+f`
 
 ## Code Editing in Neovim
 
