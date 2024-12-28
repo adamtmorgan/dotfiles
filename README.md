@@ -12,7 +12,7 @@ My workspace/dev environment consists of the following main pieces:
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
-  - [Wezterm](https://wezfurlong.org/wezterm/) - Terminal of choice.
+  - [Ghostty](https://ghostty.org/) - Terminal of choice.
   - [Lazygit](https://github.com/jesseduffield/lazygit) - Git client.
   - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking.
   - [fd](https://github.com/sharkdp/fd) - Regex File system searching.
@@ -58,31 +58,22 @@ $ brew tap homebrew/cask-fonts
 $ brew install -cask font-jetbrains-mono-nerd-font
 ```
 
-## Terminal (Wezterm)
+## Terminal (Ghostty)
 
-I used to use Alacritty + Tmux, but noticed some pretty significant latency when working in NeoVim with this combo. Switching to Wezterm and using its built-in tabs and window splits has sped things up for me considerably. I do miss some Tmux perks, but ultimately the additional performance overhead wasn't worth it to me.
+No, I don't use Tmux... It's slow.
 
-1.  Install Wezterm via Homebrew
+1.  Install Ghostty via Homebrew
 
 ```bash
-$ brew instal --cask wezterm
+$ brew install --cask ghostty
+
 ```
 
-2. Link or copy configuration from `configs/wezterm.lua` of this repo to `~/.wezterm.lua` or run my [disperse script](#Scripts).
+2. Link or copy configuration from `configs/ghostty` of this repo to `~/Library/Application\ Support/com.mitchellh.ghostty/config` or run my [disperse script](#Scripts).
 
 ```bash [link.sh]
-$ ln -s configs/wezterm.lua ~/.wezterm.lua
+$ ln -s configs/ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config
 ```
-
-3. Tab renaming. Wezterm provides a CLI command for this, but it's a bit wordy for my taste. I instead recommend creating a function in your `.zshrc` file to make this faster.
-
-```bash [.zshrc]
-$ rename-tab() {
-$   wezterm cli set-tab-title "$1"
-$ }
-```
-
-With this done, you can now rename a tab by running `rename-tab [tab-name]`.
 
 ## fd + fzf - file and directory searching
 
@@ -198,17 +189,14 @@ $ bash disperse.sh
 
 ## Usage and Workflow
 
-My workflow revolves largely around using Wezterm for tab and split management. Most shortcuts are default, except for the following:
+My workflow revolves largely around using Ghostty for tab and split management. Most shortcuts are default, except for the following:
 
-`<leader>` = `<C+Space>`
-
-1. Split vertical - `Cmd+Shift+|`
-2. Split horizontal - `Cmd+Shift+_`
-3. Navigate left pane - `Cmd+h`
-4. Navigate right pane - `Cmd+l`
-5. Move Tab Left - `Cmd+Shift+(`
-6. Move Tab Right - `Cmd+Shift+)`
-7. Hide Wezterm - `<leader>h`
+1. Split vertical - `Cmd+d`
+2. Split horizontal - `Cmd+D`
+3. Navigate left pane - `Cmd+shift+h`
+4. Navigate right pane - `Cmd+shift+l`
+5. Navigate up pane - `Cmd+shift+k`
+6. Navigate down pane - `Cmd+shift+j`
 
 ## Code Editing in Neovim
 
