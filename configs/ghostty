@@ -4,7 +4,7 @@
 
 # Theming
 theme = kanagawabones
-background = 1B2125
+background = 1a1f25
 
 # Font
 font-family = JetBrainsMono Nerd Font
@@ -31,7 +31,7 @@ macos-icon-ghost-color = DCD7BA
 macos-titlebar-style = tabs
 window-vsync = true
 window-decoration = true
-background-opacity = 0.95
+background-opacity = 0.97
 background-blur-radius = 50
 window-padding-balance = true
 window-padding-x = 10
