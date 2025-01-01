@@ -15,11 +15,10 @@ font-thicken = true
 
 # Cursor
 cursor-style = block
-cursor-style = block
 cursor-style-blink = false
 cursor-color = FF9D3C
 adjust-cursor-thickness = 4
-adjust-cursor-height = 20%
+adjust-cursor-height = 10%
 shell-integration-features = no-cursor
 
 # Icon
