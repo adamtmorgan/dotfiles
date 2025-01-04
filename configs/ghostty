@@ -24,6 +24,7 @@ adjust-cursor-height = 10%
 shell-integration-features = no-cursor
 
 # Icon
+macos-icon = custom-style
 macos-icon-frame = beige
 macos-icon-screen-color = 1A2024
 macos-icon-ghost-color = DCD7BA
@@ -51,16 +52,14 @@ window-step-resize = false
 # Bindings
 #--------------------------------------------------
 
-keybind = command+h=ignore
-
 keybind = command+shift+l=goto_split:right
 keybind = command+shift+h=goto_split:left
 keybind = command+shift+k=goto_split:top
 keybind = command+shift+j=goto_split:bottom
 
-keybind = command+control+l=resize_split:right,20
-keybind = command+control+h=resize_split:left,20
-keybind = command+control+k=resize_split:up,20
-keybind = command+control+j=resize_split:down,20
-
+keybind = command+control+l=resize_split:right,50
+keybind = command+control+h=resize_split:left,50
+keybind = command+control+k=resize_split:up,50
+keybind = command+control+j=resize_split:down,50
+keybind = command+shift+r=equalize_splits
 keybind = command+shift+f=toggle_split_zoom
