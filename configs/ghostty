@@ -26,8 +26,8 @@ shell-integration-features = no-cursor
 # Icon
 macos-icon = custom-style
 macos-icon-frame = beige
-macos-icon-screen-color = 1A2024
-macos-icon-ghost-color = DCD7BA
+macos-icon-screen-color = 534f82,312f47
+macos-icon-ghost-color = DADAFF
 
 # Window styling
 macos-titlebar-style = tabs
