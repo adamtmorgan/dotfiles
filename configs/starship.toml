@@ -3,40 +3,18 @@
 add_newline = true
 
 # ------------------------------------------
-# Kanagawa theme colors
-# ------------------------------------------
-
-#palette = 'kanagawa'
-#
-#[palettes.kanagawa]
-#base_bg = '#2A2A37'
-#wave = '#223249'
-#gray = '#DCA561'
-#light_gray = '#C8C093'
-#accent = '#E46876'
-#dark_yello = '#D4A06F'
-#brown = '#665C54'
-#green = '#98BB6C'
-#blue = '#7E9CD8'
-#sky_blue = '#7FB4CA'
-#black = '#0D0D0D'
-#white = '#DCD7BA'
-#dark_blue = '#364A82'
-#red = '#E46876'
-
-# ------------------------------------------
 # Starship Config
 # ------------------------------------------
 
 format = """
-[](#dfc5a4)\
-[󱗞 ](bg:#dfc5a4 fg:#090c0c)\
-[](bg:#627d9a fg:#dfc5a4)\
+[](#DBD7BA)\
+[󱗞 ](bg:#DBD7BA fg:#090c0c)\
+[](bg:#627d9a fg:#DBD7BA)\
 $directory\
 [](#627d9a)\
 [ ](#364A82)\
 [](fg:#364A82)\
-[](bg:#364A82 fg:#769ff0)\
+[](bg:#364A82 fg:#7E9CD8)\
 $git_branch\
 $git_status\
 [](fg:#364A82)\
