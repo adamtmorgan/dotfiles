@@ -12,7 +12,7 @@ My workspace/dev environment consists of the following main pieces:
   - [OpenVPN Client](https://openvpn.net/client/) - VPN client.
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
-  - [Ghostty](https://ghostty.org/) - Terminal of choice.
+  - [Ghostty](https://ghostty.org/) or [Wezterm](https://wezfurlong.org/wezterm/) - Terminal.
   - [Lazygit](https://github.com/jesseduffield/lazygit) - Git client.
   - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking.
   - [fd](https://github.com/sharkdp/fd) - Regex File system searching.
@@ -58,21 +58,29 @@ $ brew tap homebrew/cask-fonts
 $ brew install -cask font-jetbrains-mono-nerd-font
 ```
 
-## Terminal (Ghostty)
+## Terminal (Ghostty or Wezterm)
 
 No, I don't use Tmux... It's slow.
 
-1.  Install Ghostty via Homebrew
+1.  Install Ghostty or Wezterm via Homebrew
 
 ```bash
+# For Ghostty
 $ brew install --cask ghostty
+# For Wezterm
+$ brew install --cask wezterm
 
 ```
 
-2. Link or copy configuration from `configs/ghostty` of this repo to `~/Library/Application\ Support/com.mitchellh.ghostty/config` or run my [disperse script](#Scripts).
+2. Link or copy configuration or run my [disperse script](#Scripts).
 
-```bash [link.sh]
+```bash
+# For Ghostty
 $ ln -s configs/ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
+# For Wezterm
+$ ln -s configs/wezterm ~/.config/wezterm
+
 ```
 
 ## fd + fzf - file and directory searching
@@ -189,7 +197,9 @@ $ bash disperse.sh
 
 ## Usage and Workflow
 
-My workflow revolves largely around using Ghostty for tab and split management. Most shortcuts are default, except for the following:
+My workflow revolves largely around using Ghostty or Wezterm for tab and split management. Most shortcuts are default, except for the following:
+
+Ghostty:
 
 1. Split vertical - `Cmd+d`
 2. Split horizontal - `Cmd+D`
@@ -198,6 +208,17 @@ My workflow revolves largely around using Ghostty for tab and split management. 
 5. Navigate up pane - `Cmd+shift+k`
 6. Navigate down pane - `Cmd+shift+j`
 7. Focus/Zoom pane - `Cmd+shift+f`
+
+Wezterm (leader = `Ctrl+Space`):
+
+1. Split vertical - `Cmd+|`
+2. Split horizontal - `Cmd+-`
+3. Navigate horizontal pane - `Cmd+h`-`Cmd+l`
+4. Navigate vertical pane - `Cmd+k`-`Cmd+j`
+5. Resize Vertical = `Cmd+shift+k`-`Cmd+shift+j`
+6. Resize Horizontal = `Cmd+shift+h`-`Cmd+shift+l`
+7. Focus/Zoom pane - `Cmd+shift+f`
+8. Hide Wezterm - `<leader>h`
 
 ## Code Editing in Neovim
 
