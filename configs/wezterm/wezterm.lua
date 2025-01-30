@@ -14,11 +14,11 @@ config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic 
 -- config.freetype_render_target = "HorizontalLcd"
 -- config.cell_width = 0.9
 config.font_size = 12
--- config.line_height = 1.05
+-- config.line_height = 1.2
 
 config.color_scheme = "kanagawabones"
 
-local bg = "#1c2125"
+local bg = "#1b1e26"
 local fg = "#E2DCC0"
 
 -- Tab bar styling
