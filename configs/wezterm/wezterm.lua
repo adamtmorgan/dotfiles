@@ -29,6 +29,14 @@ config.window_frame = {
 	font_size = 12.0,
 }
 
+local padding = 9
+config.window_padding = {
+	left = padding,
+	right = padding,
+	top = padding,
+	bottom = padding,
+}
+
 -- Custom colors
 -- config.force_reverse_video_cursor = true
 config.colors = {
