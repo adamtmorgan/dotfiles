@@ -19,13 +19,15 @@ config.font_size = 12
 config.color_scheme = "kanagawabones"
 
 local bg = "#1b1e26"
+local tabbar_bg = "#12141a"
+local tabbar_active_bg = "#232530"
 local fg = "#E2DCC0"
 
 -- Tab bar styling
 config.use_fancy_tab_bar = true
 config.window_frame = {
-	active_titlebar_bg = "#1c2125",
-	inactive_titlebar_bg = "#1c2125",
+	active_titlebar_bg = tabbar_bg,
+	inactive_titlebar_bg = tabbar_bg,
 	font_size = 12.0,
 }
 
@@ -48,11 +50,11 @@ config.colors = {
 	tab_bar = {
 		inactive_tab_edge = "None",
 		active_tab = {
-			bg_color = bg,
+			bg_color = tabbar_active_bg,
 			fg_color = fg,
 		},
 		inactive_tab = {
-			bg_color = bg,
+			bg_color = tabbar_bg,
 			fg_color = "#60687e",
 		},
 		inactive_tab_hover = {
