@@ -31,12 +31,17 @@ config.window_frame = {
 	font_size = 12.0,
 }
 
-local padding = 7
+local padding = "1cell"
 config.window_padding = {
 	left = padding,
 	right = padding,
 	top = padding,
 	bottom = padding,
+}
+
+config.window_content_alignment = {
+	horizontal = "Center",
+	vertical = "Center",
 }
 
 -- Custom colors
