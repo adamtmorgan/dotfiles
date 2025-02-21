@@ -14,7 +14,7 @@ config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic 
 -- config.freetype_render_target = "HorizontalLcd"
 -- config.cell_width = 0.9
 config.font_size = 12
--- config.line_height = 1.2
+config.line_height = 1.1
 
 config.color_scheme = "kanagawabones"
 
@@ -31,7 +31,7 @@ config.window_frame = {
 	font_size = 12.0,
 }
 
-local padding = 9
+local padding = 7
 config.window_padding = {
 	left = padding,
 	right = padding,
