@@ -28,12 +28,13 @@ config.window_frame = {
 	font_size = 12.0,
 }
 
-local padding = "1cell"
+local x_padding = "7"
+local y_padding = "8"
 config.window_padding = {
-	left = padding,
-	right = padding,
-	top = padding,
-	bottom = padding,
+	left = x_padding,
+	right = x_padding,
+	top = y_padding,
+	bottom = y_padding,
 }
 
 -- Added for when available in release
