@@ -12,30 +12,22 @@ config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic 
 -- config.freetype_render_target = "HorizontalLcd"
 config.font_size = 12
 config.line_height = 1.1
+config.adjust_window_size_when_changing_font_size = false
 
+-- Colors
 config.color_scheme = "kanagawabones"
+config.bold_brightens_ansi_colors = "No"
+config.foreground_text_hsb = {
+	hue = 1.0,
+	saturation = 1.0,
+	brightness = 1.0,
+}
 
 local bg = "#1b1e26"
 local tabbar_bg = "#12141a"
 local tabbar_active_bg = "#232530"
 local fg = "#E2DCC0"
-
--- Tab bar styling
-config.use_fancy_tab_bar = true
-config.window_frame = {
-	active_titlebar_bg = tabbar_bg,
-	inactive_titlebar_bg = tabbar_bg,
-	font_size = 12.0,
-}
-
-local x_padding = "7"
-local y_padding = "8"
-config.window_padding = {
-	left = x_padding,
-	right = x_padding,
-	top = y_padding,
-	bottom = y_padding,
-}
+local fg_faded = "#60687e"
 
 -- Added for when available in release
 
@@ -60,7 +52,7 @@ config.colors = {
 		},
 		inactive_tab = {
 			bg_color = tabbar_bg,
-			fg_color = "#60687e",
+			fg_color = fg_faded,
 		},
 		inactive_tab_hover = {
 			bg_color = bg,
@@ -68,18 +60,45 @@ config.colors = {
 			italic = true,
 		},
 		new_tab = {
-			bg_color = bg,
+			bg_color = "none",
+			fg_color = fg_faded,
+		},
+		new_tab_hover = {
+			bg_color = "none",
 			fg_color = fg,
 		},
 	},
 }
 
+-- Tab bar styling
+config.use_fancy_tab_bar = true
+config.window_frame = {
+	active_titlebar_bg = tabbar_bg,
+	inactive_titlebar_bg = tabbar_bg,
+	font_size = 12.0,
+}
+
+local x_padding = "7"
+local y_padding = "8"
+config.window_padding = {
+	left = x_padding,
+	right = x_padding,
+	top = y_padding,
+	bottom = y_padding,
+}
+
 -- Window settings
 config.window_background_opacity = 0.97
 config.macos_window_background_blur = 70
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
+config.inactive_pane_hsb = {
+	saturation = 0.9,
+	brightness = 0.8,
+}
 
--- Misc other settings
+-- Performance settings
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
 config.max_fps = 120
 
 -- Disable ligeratures
