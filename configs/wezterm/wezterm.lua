@@ -6,7 +6,14 @@ local act = wezterm.action
 -- Appearance ---------------------------------------------------
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = 700, italic = false })
+config.font_rules = {
+	{
+		intensity = "Bold",
+		italic = false,
+		font = wezterm.font("JetBrainsMono Nerd Font", { weight = 800, italic = false }),
+	},
+}
 -- config.freetype_load_flags = "NO_HINTING"
 -- config.freetype_load_target = "Light"
 -- config.freetype_render_target = "HorizontalLcd"
