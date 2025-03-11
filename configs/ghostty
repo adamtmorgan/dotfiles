@@ -20,6 +20,7 @@ font-thicken = true
 cursor-style = block
 cursor-style-blink = false
 cursor-color = FF9D3C
+cursor-text = 060606
 adjust-cursor-thickness = 1
 adjust-cursor-height = 10%
 shell-integration-features = no-cursor
