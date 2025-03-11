@@ -10,8 +10,8 @@ background = 1b1e26
 # Font
 font-family = JetBrainsMono Nerd Font
 # font-family = JetBrainsMonoNL Nerd Font
-adjust-underline-position = 10%
-adjust-cell-height = 10%
+adjust-underline-position = 20%
+adjust-cell-height = 20%
 adjust-cell-width = -8%
 font-size = 12
 font-thicken = true
@@ -64,3 +64,5 @@ keybind = command+control+k=resize_split:up,50
 keybind = command+control+j=resize_split:down,50
 keybind = command+shift+r=equalize_splits
 keybind = command+shift+f=toggle_split_zoom
+
+# keybind = command+shift+i=change_title

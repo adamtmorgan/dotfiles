@@ -18,9 +18,14 @@ config.font_rules = {
 -- config.freetype_load_target = "Light"
 -- config.freetype_render_target = "HorizontalLcd"
 config.font_size = 12
-config.line_height = 1.18
+config.line_height = 1.2
 config.underline_position = "-0.25cell"
 config.adjust_window_size_when_changing_font_size = false
+
+config.dpi_by_screen = {
+	-- ['Built-in Retina Display'] = 144,
+	["C49RG9x"] = 72,
+}
 
 -- Colors
 config.color_scheme = "kanagawabones"
