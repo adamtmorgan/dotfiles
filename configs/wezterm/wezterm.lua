@@ -6,30 +6,24 @@ local act = wezterm.action
 -- Appearance ---------------------------------------------------
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = 600, italic = false })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold" })
 config.font_rules = {
 	{
 		intensity = "Bold",
 		italic = false,
-		font = wezterm.font("JetBrainsMono Nerd Font", { weight = 800, italic = false }),
+		font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = false }),
 	},
 }
 -- config.freetype_load_flags = "NO_HINTING"
 -- config.freetype_load_target = "Light"
 -- config.freetype_render_target = "HorizontalLcd"
 config.font_size = 12
-config.line_height = 1.15
-config.underline_position = "200%"
+config.line_height = 1.18
+config.underline_position = "-0.25cell"
 config.adjust_window_size_when_changing_font_size = false
 
 -- Colors
 config.color_scheme = "kanagawabones"
-config.bold_brightens_ansi_colors = "No"
-config.foreground_text_hsb = {
-	hue = 1.0,
-	saturation = 1.0,
-	brightness = 1.0,
-}
 
 local bg = "#1b1e26"
 local tabbar_bg = "#12141a"
