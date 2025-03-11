@@ -19,6 +19,7 @@ config.font_rules = {
 -- config.freetype_render_target = "HorizontalLcd"
 config.font_size = 12
 config.line_height = 1.15
+config.underline_position = "200%"
 config.adjust_window_size_when_changing_font_size = false
 
 -- Colors
