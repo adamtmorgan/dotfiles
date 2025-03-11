@@ -6,7 +6,7 @@ local act = wezterm.action
 -- Appearance ---------------------------------------------------
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = 700, italic = false })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = 600, italic = false })
 config.font_rules = {
 	{
 		intensity = "Bold",
