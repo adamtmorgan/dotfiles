@@ -4,8 +4,9 @@
 
 # Theming
 theme = kanagawabones
-# background = 1a1f25
-background = 1b1e26
+# background = 1b1e26
+background = 212329
+# background = 23252C
 
 # Font
 font-family = JetBrainsMono Nerd Font
