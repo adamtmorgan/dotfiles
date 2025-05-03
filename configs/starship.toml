@@ -1,5 +1,9 @@
 # ~/.config/starship.toml
 
+## Add a newline between commands - add below to .zshrc
+# https://github.com/starship/starship/issues/560
+# precmd() { precmd() { echo "" } }
+# alias clear="precmd() { precmd() { echo } } && clear"
 add_newline = false
 
 format = """
