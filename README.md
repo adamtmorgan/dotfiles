@@ -138,6 +138,9 @@ $ brew instal starship
 2. Turn it on for your shell. This will change depending on which shell you're using. For zsh, add the following to the END of your `~/.zshrc` file. If not at the end, `ohmyzsh` will overwrite your power line:
 
 ```bash [.zshrc]
+# https://github.com/starship/starship/issues/560
+precmd() { precmd() { echo "" } }
+alias clear="precmd() { precmd() { echo } } && clear"
 eval "$(starship init zsh)"
 ```
 
