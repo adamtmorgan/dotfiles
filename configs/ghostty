@@ -11,7 +11,7 @@ background = 212329
 # Font
 font-family = JetBrainsMono Nerd Font
 adjust-underline-position = 20%
-adjust-cell-height = 30%
+adjust-cell-height = 20%
 adjust-cell-width = -8%
 font-size = 12
 font-thicken = true
