@@ -64,6 +64,10 @@ nmap <leader>fg :action FindInPath<CR>
 "" Editing featuers
 nmap gc :action CommentByLineComment<CR>
 
+"" Uses vim-flash plugin for flash.nvim features
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+
 "" LSP-like Features
 nmap gd :action GotoDeclaration<CR>
 nmap gr :action FindUsages<CR>
