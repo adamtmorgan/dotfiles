@@ -58,6 +58,10 @@ try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.to
 create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
 try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
 
+# Link btop config
+create_path "btop" "$CONFIG_DIR/btop"
+try_link "Btop++" "$SCRIPT_DIR/configs/btop.conf" "$CONFIG_DIR/btop/btop.conf"
+
 # Link Ghostty config
 create_path "Ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
 try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty/config"
