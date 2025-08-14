@@ -62,6 +62,12 @@ try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/c
 create_path "btop" "$CONFIG_DIR/btop"
 try_link "Btop++" "$SCRIPT_DIR/configs/btop.conf" "$CONFIG_DIR/btop/btop.conf"
 
+# Link opencode config
+create_path "opencode" "$CONFIG_DIR/opencode"
+create_path "opencode themes" "$CONFIG_DIR/opencode/themes"
+try_link "opencode" "$SCRIPT_DIR/configs/opencode/opencode.jsonc" "$CONFIG_DIR/opencode/opencode.jsonc"
+try_link "opencode kanagawa custom theme" "$SCRIPT_DIR/configs/opencode/kanagawa-custom.json" "$CONFIG_DIR/opencode/themes/kanagawa-custom.json"
+
 # Link Ghostty config
 create_path "Ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
 try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty/config"
