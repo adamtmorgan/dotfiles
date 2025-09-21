@@ -2,6 +2,8 @@
 # Settings
 #--------------------------------------------------
 
+# custom-shader = shaders/cursor_smear_fade.glsl
+
 # Theming
 theme = kanagawabones
 # background = 1b1e26
