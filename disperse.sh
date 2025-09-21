@@ -69,8 +69,7 @@ try_link "opencode" "$SCRIPT_DIR/configs/opencode/opencode.jsonc" "$CONFIG_DIR/o
 try_link "opencode kanagawa custom theme" "$SCRIPT_DIR/configs/opencode/kanagawa-custom.json" "$CONFIG_DIR/opencode/themes/kanagawa-custom.json"
 
 # Link Ghostty config
-create_path "Ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
-try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty/config"
+try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
 
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
