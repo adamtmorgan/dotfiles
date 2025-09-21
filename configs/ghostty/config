@@ -29,10 +29,10 @@ adjust-cursor-height = 20%
 shell-integration-features = no-cursor
 
 # Icon
-macos-icon = custom-style
-macos-icon-frame = beige
-macos-icon-screen-color = 534f82,312f47
-macos-icon-ghost-color = DADAFF
+# macos-icon = custom-style
+# macos-icon-frame = beige
+# macos-icon-screen-color = 534f82,312f47
+# macos-icon-ghost-color = DADAFF
 
 # Window styling
 macos-titlebar-style = tabs
