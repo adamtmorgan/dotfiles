@@ -16,6 +16,7 @@ My workspace/dev environment consists of the following main pieces:
   - [Lazygit](https://github.com/jesseduffield/lazygit) - Git client.
   - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking.
   - [fd](https://github.com/sharkdp/fd) - Regex File system searching.
+  - [bat](https://github.com/sharkdp/bat) - cat repacement with syntax highlighting.
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - Pretty terminal colors.
   - [Starship](https://starship.rs/) - Fancy status line.
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Command history.
@@ -169,6 +170,28 @@ bindkey '^f' autosuggest-accept
 ```
 
 3. Once added, you should see suggestions based on command history. To accept a suggestion, hit the right arrow key or `Ctl+f`.
+
+## Other misc. CLI tools
+
+### bat
+
+`bat` is a `cat` replacement that has syntax highlighting and other modern features. This is used to 
+preview files inside of fzf and can also be used directly if peeking into files.
+
+1.  Install [bat](https://github.com/sharkdp/bat)
+```bash
+$ brew instal bat
+```
+
+2. Link or move the config in this repo into your `~/.config` directory or run my [disperse script](#Scripts):
+```bash
+$ ln -s configs/bat ~/.config/bat
+```
+
+3. Build the bat cache. This will tell bat to use the kanagawa theme included with this config.
+```bash
+$ bat cache --build
+```
 
 ## Code Editor (Neovim)
 
