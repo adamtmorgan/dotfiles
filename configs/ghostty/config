@@ -6,9 +6,10 @@
 
 # Theming
 theme = kanagawabones
-# background = 1b1e26
-background = 212329
-# background = 23252C
+background = 272930
+unfocused-split-fill = 11151A
+unfocused-split-opacity = 0.9
+split-divider-color = 54546D
 
 # Font
 font-family = JetBrainsMono Nerd Font
@@ -43,7 +44,6 @@ background-blur-radius = 50
 window-padding-balance = true
 window-padding-x = 8
 window-padding-y = 8
-unfocused-split-opacity = 0.7
 quick-terminal-position = bottom
 window-height = 55
 window-width = 175
@@ -52,6 +52,7 @@ window-width = 175
 window-save-state = always
 mouse-hide-while-typing = true
 window-step-resize = false
+window-new-tab-position = end
 
 #--------------------------------------------------
 # Bindings
