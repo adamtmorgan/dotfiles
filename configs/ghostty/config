@@ -6,10 +6,10 @@
 
 # Theming
 theme = kanagawabones
-background = 272930
-unfocused-split-fill = 11151A
+background = 262630
+unfocused-split-fill = 000000
 unfocused-split-opacity = 0.9
-split-divider-color = 54546D
+split-divider-color = 4B4B62
 
 # Font
 font-family = JetBrainsMono Nerd Font
