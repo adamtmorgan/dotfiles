@@ -6,7 +6,7 @@
 
 # Theming
 theme = kanagawabones
-background = 26262E
+background = 22222B
 unfocused-split-fill = 050505
 unfocused-split-opacity = 0.9
 split-divider-color = 4B4B62
