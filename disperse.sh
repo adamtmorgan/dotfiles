@@ -77,6 +77,9 @@ try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
 
+# Link ripgrep ignore config
+try_link "Ripgrep Ignore" "$SCRIPT_DIR/configs/ripgrep.ignore" "$CONFIG_DIR/ripgrep.ignore"
+
 # Link k9s config
 if [[ "$OS" == "Darwin" ]]; then
     create_path "k9s" "$APP_SUPPORT_DIR/k9s"
