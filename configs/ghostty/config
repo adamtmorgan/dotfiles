@@ -2,7 +2,7 @@
 # Settings
 #--------------------------------------------------
 
-custom-shader = shaders/cursor_warp.glsl
+# custom-shader = shaders/cursor_warp.glsl
 
 # Theming
 theme = kanagawabones
