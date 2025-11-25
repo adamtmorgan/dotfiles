@@ -1,0 +1,13 @@
+[tools]
+bun = "latest"
+colima = "latest"
+fd = "latest"
+fzf = "latest"
+lazydocker = "latest"
+lazygit = "latest"
+lima = "latest"
+neovim = "latest"
+node = "latest"
+ripgrep = "latest"
+rust = "latest"
+starship = "latest"

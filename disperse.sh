@@ -48,6 +48,9 @@ function create_path() {
 echo "Linking files from repo at path $SCRIPT_DIR..."
 echo
 
+# mise config
+try_link "Mise" "$SCRIPT_DIR/configs/mise" "$CONFIG_DIR/mise"
+
 # Link Wezterm config
 try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 
