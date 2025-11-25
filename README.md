@@ -13,6 +13,7 @@ My workspace/dev environment consists of the following main pieces:
   - [TablePlus](https://tableplus.com/) - Database client.
 - CLI Setup (what this repo is mainly about):
   - [Ghostty](https://ghostty.org/) or [Wezterm](https://wezfurlong.org/wezterm/) - Terminal.
+  - [Mise](https://mise.jdx.dev/getting-started.html) - Env setup.
   - [Lazygit](https://github.com/jesseduffield/lazygit) - Git client.
   - [fzf](https://github.com/junegunn/fzf) - Fuzzy search and ranking.
   - [fd](https://github.com/sharkdp/fd) - Regex File system searching.
@@ -28,10 +29,14 @@ My workspace/dev environment consists of the following main pieces:
 
 1.  Make sure MacOS is up to date.
 2.  Download and install [Homebrew](https://brew.sh/)
+3.  Download and install [Mise](https://mise.jdx.dev/installing-mise.html). Can be done via homebrew or curl.
 
 ```bash
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+$ curl https://mise.run | sh
 ```
+
+### Hoembrew troubleshooting
 
 If using Apple Silicon, you may need to add Homebrew to your $PATH in .zshrc. This is necessary
 since MacOS migrated to Zsh as its primary shell during the Apple Silicon transition. Homebrew installs
@@ -47,6 +52,15 @@ If things still aren't working, try adding the following to your `.zprofile` fil
 
 ```bash
 $ eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+### Mise-managed CLIs
+
+The mise global config manages most of the CLIs here. Calling `mise install` will
+install all of these CLIs in one go.
+
+```bash
+$ mise install
 ```
 
 ## Fonts
@@ -88,17 +102,11 @@ $ ln -s configs/wezterm ~/.config/wezterm
 
 `fd` is a very fast alternative to `find`. `fzf` will fuzzy-find in those results and rank them.
 
-```bash
-$ brew install fd
-$ brew install fzf
-```
-
-Then add the following to your `.zshrc` file...
+Installed via `mise`. Once installed, add the following to your `.zshrc` file...
 
 ```bash
 [ -f [path-to-repo]/configs/fzf_zsh.sh ] && source [path-to-repo]/configs/fzf_zsh.sh
 ```
-
 ... and then either restart your terminal or run `source ~/.zshrc`.
 
 Once this is done, you should have access to the `ff` function for searching files in the CWD, and `ffd` function for
@@ -110,9 +118,7 @@ the `fzf` view, giving us the best of both worlds.
 Lazygit is my Git client of choice. Great for quick commits, diffing, etc.
 [View the readme](https://github.com/jesseduffield/lazygit/blob/master/README.md) for usage.
 
-```bash
-$ brew install lazygit
-```
+Installed via `mise`.
 
 ## Oh My Zsh (zsh themes)
 
@@ -130,13 +136,9 @@ ZSH_THEME="gallois"
 
 ## Sexy Terminal Lines (Starship)
 
-1.  Install [Starship](https://starship.rs/)
+Installed via `mise`. Once installed:
 
-```bash
-$ brew instal starship
-```
-
-2. Turn it on for your shell. This will change depending on which shell you're using. For zsh, add the following to the END of your `~/.zshrc` file. If not at the end, `ohmyzsh` will overwrite your power line:
+1. Turn it on for your shell. This will change depending on which shell you're using. For zsh, add the following to the END of your `~/.zshrc` file. If not at the end, `ohmyzsh` will overwrite your power line:
 
 ```bash [.zshrc]
 # https://github.com/starship/starship/issues/560
@@ -178,39 +180,32 @@ bindkey '^f' autosuggest-accept
 `bat` is a `cat` replacement that has syntax highlighting and other modern features. This is used to 
 preview files inside of fzf and can also be used directly if peeking into files.
 
-1.  Install [bat](https://github.com/sharkdp/bat)
-```bash
-$ brew instal bat
-```
+Installed via `mise`. Once installed:
 
-2. Link or move the config in this repo into your `~/.config` directory or run my [disperse script](#Scripts):
+1. Link or move the config in this repo into your `~/.config` directory or run my [disperse script](#Scripts):
 ```bash
 $ ln -s configs/bat ~/.config/bat
 ```
 
-3. Build the bat cache. This will tell bat to use the kanagawa theme included with this config.
+2. Build the bat cache. This will tell bat to use the kanagawa theme included with this config.
 ```bash
 $ bat cache --build
 ```
 
 ## Code Editor (Neovim)
 
-1.  Install Neovim via Homebrew
+Installed via `mise`. Once installed:
 
-```bash
-$ brew install neovim
-```
-
-2. Clone my [NvStache](https://github.com/adamtmorgan/NvStache) repo from Github into your `~/.config` directory or wherever you store your Neovim configuration.
-3. Back up your old config, if present, and replace config directly with my NvStache repo or link it from a custom location.
+1. Clone my [NvStache](https://github.com/adamtmorgan/NvStache) repo from Github into your `~/.config` directory or wherever you store your Neovim configuration.
+2. Back up your old config, if present, and replace config directly with my NvStache repo or link it from a custom location.
 
 ```bash [link]
 $ mv ~/.config/nvim ~/.config/nvim-bak
 $ ln -s [path-to-nvstache-config-dir] ~/.config/nvim
 ```
 
-5. Run `nvim` and follow instructions in the [NvStache Readme](https://github.com/adamtmorgan/NvStache)
-6. Make sure `lazy-nvim` propery loaded plugins and that necessary LSPs are installed via `Mason`.
+3. Run `nvim` and follow instructions in the [NvStache Readme](https://github.com/adamtmorgan/NvStache)
+4. Make sure `lazy-nvim` propery loaded plugins and that necessary LSPs are installed via `Mason`.
 
 ## Scripts
 
