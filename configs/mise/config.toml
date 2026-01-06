@@ -2,7 +2,7 @@
 bat = "latest"
 bun = "latest"
 colima = "latest"
-docker-compose = "latest"
+docker-compose = { version = "latest", postinstall = "ln -sf ~/.local/share/mise/installs/docker-compose/latest/docker-cli-plugin-docker-compose ~/.docker/cli-plugins/docker-compose && echo 'docker-compose plugin moved'"}
 fd = "latest"
 fnox = "latest"
 fzf = "latest"
