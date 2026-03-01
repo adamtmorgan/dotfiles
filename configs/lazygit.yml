@@ -21,7 +21,7 @@ gui:
   skipRewordInEditorWarning: false
   # Fraction of the total screen width to use for the left side section. You may want to pick a small number (e.g. 0.2) if you're using a narrow screen, so that you can see more of the main section.
   # Number from 0 to 1.0.
-  sidePanelWidth: 0.3333
+  sidePanelWidth: 0.3
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: false
   # The weight of the expanded side panel, relative to the other panels. 2 means
@@ -174,8 +174,6 @@ git:
       # delta --dark --paging=never
       # ydiff -p cat -s --wrap --width={{columnWidth}}
       pager: ""
-      # If true, Lazygit will use whatever pager is specified in `$GIT_PAGER`, `$PAGER`, or your *git config*. If the pager ends with something like ` | less` we will strip that part out, because less doesn't play nice with our rendering approach. If the custom pager uses less under the hood, that will also break rendering (hence the `--paging=never` flag for the `delta` pager).
-      useConfig: false
       # e.g. 'difft --color=always'
       externalDiffCommand: ""
   # Config relating to committing
