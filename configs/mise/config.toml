@@ -6,6 +6,7 @@ docker-compose = { version = "latest", postinstall = "ln -sf ~/.local/share/mise
 fd = "latest"
 fnox = "latest"
 fzf = "latest"
+gh = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lima = "latest"
