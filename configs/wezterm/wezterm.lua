@@ -6,7 +6,7 @@ local act = wezterm.action
 -- Appearance ---------------------------------------------------
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold" })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
 config.font_rules = {
 	{
 		intensity = "Bold",
@@ -18,7 +18,7 @@ config.font_rules = {
 -- config.freetype_load_target = "Light"
 -- config.freetype_render_target = "HorizontalLcd"
 config.font_size = 12
-config.line_height = 1.2
+config.line_height = 1.25
 config.underline_position = "-0.25cell"
 config.adjust_window_size_when_changing_font_size = false
 
