@@ -58,8 +58,8 @@ try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
 
 # Link Lazygit config
-create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
-try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
+# create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
+# try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
 
 # Link btop config
 create_path "btop" "$CONFIG_DIR/btop"
