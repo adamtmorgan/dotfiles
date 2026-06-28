@@ -51,6 +51,9 @@ echo
 # mise config
 try_link "Mise" "$SCRIPT_DIR/configs/mise" "$CONFIG_DIR/mise"
 
+# zellij config
+try_link "Zellij" "$SCRIPT_DIR/configs/zellij.kdl" "$CONFIG_DIR/zellij/config.kdl"
+
 # Link Wezterm config
 try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 
