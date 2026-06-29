@@ -1,0 +1,10 @@
+{
+    "$schema": "https://opencode.ai/tui.json",
+    "theme": "kanagawa-custom",
+    "keybinds": {
+        "messages_page_up": "pageup,ctrl+u",
+        "messages_page_down": "pagedown,ctrl+d",
+        "prompt.autocomplete.prev": "up,ctrl+k",
+        "prompt.autocomplete.next": "down,ctrl+j",
+    }
+}

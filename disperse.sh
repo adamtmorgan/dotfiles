@@ -72,7 +72,9 @@ try_link "Btop++" "$SCRIPT_DIR/configs/btop.conf" "$CONFIG_DIR/btop/btop.conf"
 create_path "opencode" "$CONFIG_DIR/opencode"
 create_path "opencode themes" "$CONFIG_DIR/opencode/themes"
 try_link "opencode" "$SCRIPT_DIR/configs/opencode/opencode.jsonc" "$CONFIG_DIR/opencode/opencode.jsonc"
+try_link "opencode tui config" "$SCRIPT_DIR/configs/opencode/tui.jsonc" "$CONFIG_DIR/opencode/tui.jsonc"
 try_link "opencode kanagawa custom theme" "$SCRIPT_DIR/configs/opencode/kanagawa-custom.json" "$CONFIG_DIR/opencode/themes/kanagawa-custom.json"
+try_link "opencode AGENTS.md" "$SCRIPT_DIR/configs/opencode/AGENTS.md" "$CONFIG_DIR/opencode/themes/AGENTS.md"
 
 # Link bat config
 try_link "bat" "$SCRIPT_DIR/configs/bat" "$CONFIG_DIR/bat"
