@@ -52,6 +52,7 @@ echo
 try_link "Mise" "$SCRIPT_DIR/configs/mise" "$CONFIG_DIR/mise"
 
 # zellij config
+create_path "zellij" "$CONFIG_DIR/zellij"
 try_link "Zellij" "$SCRIPT_DIR/configs/zellij.kdl" "$CONFIG_DIR/zellij/config.kdl"
 
 # Link Wezterm config
@@ -61,8 +62,13 @@ try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
 
 # Link Lazygit config
-# create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
-# try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
+if [[ "$OS" == "Darwin" ]]; then
+    create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
+    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
+elif [[ "$OS" == "Linux" ]]; then
+    create_path "k9s" "$CONFIG_DIR/lazygit"
+    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
+fi
 
 # Link btop config
 create_path "btop" "$CONFIG_DIR/btop"
@@ -80,7 +86,11 @@ try_link "opencode AGENTS.md" "$SCRIPT_DIR/configs/opencode/AGENTS.md" "$CONFIG_
 try_link "bat" "$SCRIPT_DIR/configs/bat" "$CONFIG_DIR/bat"
 
 # Link Ghostty config
-try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
+if [[ "$OS" == "Darwin" ]]; then
+    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
+elif [[ "$OS" == "Linux" ]]; then
+    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
+fi
 
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
