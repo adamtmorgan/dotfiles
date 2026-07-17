@@ -34,7 +34,6 @@ hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + R", hl.dsp.layout("rotatesplit")) -- dwindle only
 hl.bind(mainMod .. " + S", hl.dsp.layout("swapsplit"))   -- dwindle only
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit")) -- dwindle only
 
@@ -92,7 +91,6 @@ hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
 -----------------------------------------------------------------------------------
 hl.bind(mainMod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("1password"))
 hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(passwordManager))
--- hl.bind(openAppMod .. " + G", hl.dsp.workspace.toggle_special("grok"))
 hl.bind(mainMod .. " + 0", hl.dsp.workspace.toggle_special("scratchpad"))
 
 -----------------------------------------------------------------------------------
