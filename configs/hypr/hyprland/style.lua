@@ -68,8 +68,10 @@ hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
--- Default springs
+-- Springs
 hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve("popupWorkspace", { type = "spring", mass = 2, stiffness = 110, dampening = 30})
+hl.curve("workspaceEntry", { type = "spring", mass = 2, stiffness = 74, dampening = 25})
 
 hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
 hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
@@ -84,7 +86,8 @@ hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQu
 hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1.6, spring = "workspaceEntry", style = "slidefade 1%" })
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.46, spring = "workspaceEntry", style = "slidefade 1%" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.46, spring = "workspaceEntry", style = "slidefade 1%" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1, spring = "popupWorkspace", style = "slidevert 1%" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
