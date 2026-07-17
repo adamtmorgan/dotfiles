@@ -20,6 +20,7 @@ local grok            = "/opt/brave-bin/brave --profile-directory=Default --app-
 -----------------------------------------------------------------------------------
 local mainMod         = "SUPER" -- Sets "Windows" key as main modifier
 local openAppMod      = "SUPER + ALT"
+local resizeMod       = "SUPER + ALT" -- Limit to num keys
 
 -----------------------------------------------------------------------------------
 -- Main
@@ -40,6 +41,9 @@ hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 
 hl.bind(mainMod .. " + SHIFT + f", hl.dsp.focus({ window = "floating" }))
+hl.bind(mainMod .. " + SHIFT + t", hl.dsp.focus({ window = "tiled" }))
+
+-- Shrink horizontal to half screen size
 hl.bind(mainMod .. " + SHIFT + t", hl.dsp.focus({ window = "tiled" }))
 -- hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.focus({ next = true }))  -- or similar cyclenext variant
 
@@ -88,6 +92,28 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Equalize splits
 hl.bind(mainMod .. " + e", hl.dsp.layout("splitratio 1.0 exact"))
+
+-----------------------------------------------------------------------------------
+-- Resizing
+-----------------------------------------------------------------------------------
+
+local resizeByScreen = function(width_ratio, height_ratio)
+    local mon = hl.get_active_monitor()
+    if not mon then return end
+
+    local width = math.floor(mon.width * width_ratio)
+    local height = math.floor(mon.height * height_ratio)
+    hl.dispatch(hl.dsp.window.resize({
+        x = width,
+        y = height,
+        relative = false
+    }))
+end
+
+hl.bind(resizeMod .. "+ 1", function() resizeByScreen(0.25, 0.7) end)
+hl.bind(resizeMod .. "+ 2", function() resizeByScreen(0.33, 1) end)
+hl.bind(resizeMod .. "+ 3", function() resizeByScreen(0.5, 1) end)
+hl.bind(resizeMod .. "+ 4", function() resizeByScreen(1, 1) end)
 
 -----------------------------------------------------------------------------------
 -- Apps
