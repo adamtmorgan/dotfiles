@@ -43,14 +43,27 @@ hl.bind(mainMod .. " + SHIFT + f", hl.dsp.focus({ window = "floating" }))
 hl.bind(mainMod .. " + SHIFT + t", hl.dsp.focus({ window = "tiled" }))
 -- hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.focus({ next = true }))  -- or similar cyclenext variant
 
--- Groups
--- Example group-related binds
-local mainMod = "SUPER"
-
 -- Toggle floating (your "promote to floating" key)
 hl.bind(mainMod .. " + f", function()
+    local was_floating = false
+    local win = hl.get_active_window()
+    if win then
+        was_floating = win.floating
+    end
+
     hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-    hl.dispatch(hl.dsp.window.center())
+
+    if not was_floating then
+        local mon = hl.get_active_monitor()
+        local target_w = math.floor(mon.width * 0.5)
+        local target_h = math.floor(mon.height * 0.75)
+        hl.dispatch(hl.dsp.window.resize({
+            x = target_w,
+            y = target_h,
+            exact = true
+        }))
+        hl.dispatch(hl.dsp.window.center())
+    end
 end)
 
 -- Center any floating window
@@ -63,8 +76,7 @@ for i = 1, 9 do
     hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
