@@ -19,8 +19,38 @@ require("1password")
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = -1,           -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = false,        -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
 
+-- For retaining steam big picture mode after game closes
+hl.on("window.active", function(w)
+    if w and
+        w.class == "steam" and
+        w.title == "Steam Big Picture Mode" then
+        hl.dispatch(hl.dsp.window.fullscreen({
+            action = "set",
+            mode = "fullscreen"
+        }))
+    end
+end)
+
+-- Big Picture Mode
+hl.window_rule({
+    match = {
+        class = "^[Ss]team$",
+        title = "^Steam Big Picture Mode$",
+    },
+    fullscreen = true,
+    suppress_event = "fullscreen",
+})
+
+-- Steam Overlay / Menus (in-game)
+-- hl.window_rule({
+--     match = {
+--         class = "^[Ss]team$",
+--     },
+--     float = true,
+--     stay_focused = true,
+-- })

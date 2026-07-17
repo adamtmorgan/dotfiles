@@ -16,9 +16,8 @@ hl.config({
         accel_profile = "adaptive",
         --accel_profile = "custom 0 0.1 0.5 1",
 
-        touchpad     = {
-            natural_scroll = false,
-        },
+        -- Mimic MacOS
+        natural_scroll = true,
     },
 })
 

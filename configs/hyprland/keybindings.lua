@@ -10,7 +10,7 @@ local fileManager     = "dolphin"
 local browser         = "brave"
 local menu            = "hyprlauncher"
 local steam           = "steam"
-local passwordManager = "1password"
+local passwordManager = "[float] 1password --show"
 
 -- Web apps. Installed w/ brave. Found in ~/.local/share/applications/brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default.desktop
 local grok            = "/opt/brave-bin/brave --profile-directory=Default --app-id=ggjocahimgaohmigbfhghnlfcnjemagj"
@@ -57,10 +57,9 @@ hl.bind(mainMod .. " + c", hl.dsp.window.center())
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+for i = 1, 9 do
+    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -83,36 +82,16 @@ hl.bind(mainMod .. " + e", hl.dsp.layout("splitratio 1.0 exact"))
 hl.bind(openAppMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(openAppMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(openAppMod .. " + F", hl.dsp.exec_cmd(fileManager))
-hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
 hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(steam))
+hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
+
+-----------------------------------------------------------------------------------
+-- Workspaces
+-----------------------------------------------------------------------------------
+hl.bind(mainMod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("1password"))
 hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(passwordManager))
-
--- =====================
--- Workspace Rules (Special / Scratchpad)
--- =====================
-
--- 1Password special workspace (floats + auto-launches)
-hl.workspace_rule({
-    workspace = "special:1password",
-    on_created_empty = "[float] 1password --show",
-    persistent = true,
-})
-hl.bind(openAppMod .. " + P", hl.dsp.workspace.toggle_special("1password"))
-
--- General scratchpad for random terminals
-hl.workspace_rule({
-    workspace = "special:scratchpad",
-    on_created_empty = "ghostty"
-    -- You can also do "[float] foot" if you want everything floating here
-})
-
--- Optional: Force floating + nice defaults on the scratchpad workspace
--- hl.window_rule({
---     match = { workspace = "special:scratchpad" },
---     float = true,
---     size = { 800, 600 },        -- optional fixed size
---     center = true,
--- })
+-- hl.bind(openAppMod .. " + G", hl.dsp.workspace.toggle_special("grok"))
+hl.bind(mainMod .. " + 0", hl.dsp.workspace.toggle_special("scratchpad"))
 
 -----------------------------------------------------------------------------------
 -- Laptop multimedia keys for volume and LCD brightness
