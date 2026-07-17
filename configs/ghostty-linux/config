@@ -42,6 +42,10 @@ quick-terminal-position = bottom
 window-height = 55
 window-width = 175
 
+# Custom css styling in linux
+window-theme = ghostty
+gtk-custom-css = ~/.config/ghostty/tab-style.css
+
 # Behavior
 window-save-state = always
 mouse-hide-while-typing = true
