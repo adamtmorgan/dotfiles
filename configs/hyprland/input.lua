@@ -12,7 +12,7 @@ hl.config({
 
         follow_mouse = 1,
 
-        sensitivity  = -1, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity  = -0.65, -- -1.0 - 1.0, 0 means no modification.
         accel_profile = "adaptive",
         --accel_profile = "custom 0 0.1 0.5 1",
 

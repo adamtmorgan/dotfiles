@@ -38,6 +38,8 @@ hl.bind(mainMod .. " + R", hl.dsp.layout("rotatesplit")) -- dwindle only
 hl.bind(mainMod .. " + S", hl.dsp.layout("swapsplit"))   -- dwindle only
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit")) -- dwindle only
 
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
+
 hl.bind(mainMod .. " + SHIFT + f", hl.dsp.focus({ window = "floating" }))
 hl.bind(mainMod .. " + SHIFT + t", hl.dsp.focus({ window = "tiled" }))
 -- hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.focus({ next = true }))  -- or similar cyclenext variant
