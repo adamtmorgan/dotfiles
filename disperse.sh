@@ -48,6 +48,10 @@ function create_path() {
 echo "Linking files from repo at path $SCRIPT_DIR..."
 echo
 
+# --------------------------------------------------
+# MacOS / Linux univeral install locations
+# --------------------------------------------------
+
 # mise config
 try_link "Mise" "$SCRIPT_DIR/configs/mise" "$CONFIG_DIR/mise"
 
@@ -60,15 +64,6 @@ try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
 
 # Link Starship config
 try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
-
-# Link Lazygit config
-if [[ "$OS" == "Darwin" ]]; then
-    create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
-    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
-elif [[ "$OS" == "Linux" ]]; then
-    create_path "k9s" "$CONFIG_DIR/lazygit"
-    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
-fi
 
 # Link btop config
 create_path "btop" "$CONFIG_DIR/btop"
@@ -85,26 +80,41 @@ try_link "opencode AGENTS.md" "$SCRIPT_DIR/configs/opencode/AGENTS.md" "$CONFIG_
 # Link bat config
 try_link "bat" "$SCRIPT_DIR/configs/bat" "$CONFIG_DIR/bat"
 
-# Link Ghostty config
-if [[ "$OS" == "Darwin" ]]; then
-    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
-elif [[ "$OS" == "Linux" ]]; then
-    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
-fi
-
 # Link IdeaVim config
 try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
 
 # Link ripgrep ignore config
 try_link "Ripgrep Ignore" "$SCRIPT_DIR/configs/ripgrep.ignore" "$CONFIG_DIR/ripgrep.ignore"
 
-# Link k9s config
+# --------------------------------------------------
+# MacOS / Linux uniuqe install locations
+# --------------------------------------------------
+
 if [[ "$OS" == "Darwin" ]]; then
+    # Ghostty
+    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
+
+    # Link k9s config
     create_path "k9s" "$APP_SUPPORT_DIR/k9s"
     try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$APP_SUPPORT_DIR/k9s/config.yaml"
     try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$APP_SUPPORT_DIR/k9s/skins"
+
+    # Link Lazygit config
+    create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
+    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
 elif [[ "$OS" == "Linux" ]]; then
+    # Ghostty
+    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
+
+    # Link k9s config
     create_path "k9s" "$CONFIG_DIR/k9s"
     try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$CONFIG_DIR/k9s/config.yaml"
     try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$CONFIG_DIR/k9s/skins"
+
+    # Link Lazygit config
+    create_path "k9s" "$CONFIG_DIR/lazygit"
+    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
+
+    # Hyprland and hypr configs
+    try_link "Hypr config" "$SCRIPT_DIR/configs/hypr" "$CONFIG_DIR/hypr"
 fi
