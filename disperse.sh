@@ -5,7 +5,7 @@
 OS=$(uname)
 CONFIG_DIR="$HOME/.config"
 APP_SUPPORT_DIR="$HOME/Library/Application Support"
-SCRIPT_DIR="$(dirname "$(realpath "$0")")" # path for script directory
+LOCAL_PATH="$(dirname "$(realpath "$0")")" # path for script directory
 
 # Links a source to a destination and handles edge cases
 function try_link() {
@@ -45,7 +45,7 @@ function create_path() {
     fi
 }
 
-echo "Linking files from repo at path $SCRIPT_DIR..."
+echo "Linking files from repo at path $LOCAL_PATH..."
 echo
 
 # --------------------------------------------------
@@ -53,38 +53,38 @@ echo
 # --------------------------------------------------
 
 # mise config
-try_link "Mise" "$SCRIPT_DIR/configs/mise" "$CONFIG_DIR/mise"
+try_link "Mise" "$LOCAL_PATH/configs/mise" "$CONFIG_DIR/mise"
 
 # zellij config
 create_path "zellij" "$CONFIG_DIR/zellij"
-try_link "Zellij" "$SCRIPT_DIR/configs/zellij.kdl" "$CONFIG_DIR/zellij/config.kdl"
+try_link "Zellij" "$LOCAL_PATH/configs/zellij.kdl" "$CONFIG_DIR/zellij/config.kdl"
 
 # Link Wezterm config
-try_link "Wezterm" "$SCRIPT_DIR/configs/wezterm" "$CONFIG_DIR/wezterm"
+try_link "Wezterm" "$LOCAL_PATH/configs/wezterm" "$CONFIG_DIR/wezterm"
 
 # Link Starship config
-try_link "Starship" "$SCRIPT_DIR/configs/starship.toml" "$CONFIG_DIR/starship.toml"
+try_link "Starship" "$LOCAL_PATH/configs/starship.toml" "$CONFIG_DIR/starship.toml"
 
 # Link btop config
 create_path "btop" "$CONFIG_DIR/btop"
-try_link "Btop++" "$SCRIPT_DIR/configs/btop.conf" "$CONFIG_DIR/btop/btop.conf"
+try_link "Btop++" "$LOCAL_PATH/configs/btop.conf" "$CONFIG_DIR/btop/btop.conf"
 
 # Link opencode config
 create_path "opencode" "$CONFIG_DIR/opencode"
 create_path "opencode themes" "$CONFIG_DIR/opencode/themes"
-try_link "opencode" "$SCRIPT_DIR/configs/opencode/opencode.jsonc" "$CONFIG_DIR/opencode/opencode.jsonc"
-try_link "opencode tui config" "$SCRIPT_DIR/configs/opencode/tui.jsonc" "$CONFIG_DIR/opencode/tui.jsonc"
-try_link "opencode kanagawa custom theme" "$SCRIPT_DIR/configs/opencode/kanagawa-custom.json" "$CONFIG_DIR/opencode/themes/kanagawa-custom.json"
-try_link "opencode AGENTS.md" "$SCRIPT_DIR/configs/opencode/AGENTS.md" "$CONFIG_DIR/opencode/themes/AGENTS.md"
+try_link "opencode" "$LOCAL_PATH/configs/opencode/opencode.jsonc" "$CONFIG_DIR/opencode/opencode.jsonc"
+try_link "opencode tui config" "$LOCAL_PATH/configs/opencode/tui.jsonc" "$CONFIG_DIR/opencode/tui.jsonc"
+try_link "opencode kanagawa custom theme" "$LOCAL_PATH/configs/opencode/kanagawa-custom.json" "$CONFIG_DIR/opencode/themes/kanagawa-custom.json"
+try_link "opencode AGENTS.md" "$LOCAL_PATH/configs/opencode/AGENTS.md" "$CONFIG_DIR/opencode/themes/AGENTS.md"
 
 # Link bat config
-try_link "bat" "$SCRIPT_DIR/configs/bat" "$CONFIG_DIR/bat"
+try_link "bat" "$LOCAL_PATH/configs/bat" "$CONFIG_DIR/bat"
 
 # Link IdeaVim config
-try_link "IdeaVim" "$SCRIPT_DIR/configs/ideavimrc" "$HOME/.ideavimrc"
+try_link "IdeaVim" "$LOCAL_PATH/configs/ideavimrc" "$HOME/.ideavimrc"
 
 # Link ripgrep ignore config
-try_link "Ripgrep Ignore" "$SCRIPT_DIR/configs/ripgrep.ignore" "$CONFIG_DIR/ripgrep.ignore"
+try_link "Ripgrep Ignore" "$LOCAL_PATH/configs/ripgrep.ignore" "$CONFIG_DIR/ripgrep.ignore"
 
 # --------------------------------------------------
 # MacOS / Linux uniuqe install locations
@@ -92,32 +92,36 @@ try_link "Ripgrep Ignore" "$SCRIPT_DIR/configs/ripgrep.ignore" "$CONFIG_DIR/ripg
 
 if [[ "$OS" == "Darwin" ]]; then
     # Ghostty
-    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
+    try_link "Ghostty" "$LOCAL_PATH/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
 
     # Link k9s config
     create_path "k9s" "$APP_SUPPORT_DIR/k9s"
-    try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$APP_SUPPORT_DIR/k9s/config.yaml"
-    try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$APP_SUPPORT_DIR/k9s/skins"
+    try_link "k9s config" "$LOCAL_PATH/configs/k9s/config.yaml" "$APP_SUPPORT_DIR/k9s/config.yaml"
+    try_link "k9s skins" "$LOCAL_PATH/configs/k9s/skins" "$APP_SUPPORT_DIR/k9s/skins"
 
     # Link Lazygit config
     create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
-    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
+    try_link "Lazygit" "$LOCAL_PATH/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
 elif [[ "$OS" == "Linux" ]]; then
     # Link systemd custom services
-    try_link "systemd services" "$SCRIPT_DIR/configs/systemd" "$CONFIG_DIR/systemd"
+    try_link "systemd services" "$LOCAL_PATH/configs/systemd" "$CONFIG_DIR/systemd"
 
     # Ghostty
-    try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
+    try_link "Ghostty" "$LOCAL_PATH/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
 
     # Link k9s config
     create_path "k9s" "$CONFIG_DIR/k9s"
-    try_link "k9s config" "$SCRIPT_DIR/configs/k9s/config.yaml" "$CONFIG_DIR/k9s/config.yaml"
-    try_link "k9s skins" "$SCRIPT_DIR/configs/k9s/skins" "$CONFIG_DIR/k9s/skins"
+    try_link "k9s config" "$LOCAL_PATH/configs/k9s/config.yaml" "$CONFIG_DIR/k9s/config.yaml"
+    try_link "k9s skins" "$LOCAL_PATH/configs/k9s/skins" "$CONFIG_DIR/k9s/skins"
 
     # Link Lazygit config
     create_path "k9s" "$CONFIG_DIR/lazygit"
-    try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
+    try_link "Lazygit" "$LOCAL_PATH/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
 
     # Hyprland and hypr configs
-    try_link "Hypr config" "$SCRIPT_DIR/configs/hypr" "$CONFIG_DIR/hypr"
+    try_link "Hypr config" "$LOCAL_PATH/configs/hypr" "$CONFIG_DIR/hypr"
+
+    # Link custom binaries/scripts
+    create_path "~/bin" "$HOME/bin"
+    try_link "hyprscope (gamescope/hyprland util)" "$LOCAL_PATH/configs/hypr/scripts/hyprscope/hyprscope.sh" "$HOME/bin/hyprscope"
 fi
