@@ -1,0 +1,11 @@
+[Unit]
+Description=Run wallpaper cycle every 30 minutes
+After=graphical-session.target
+
+[Timer]
+OnCalendar=*:0/30
+Persistent=true
+RandomizedDelaySec=30
+
+[Install]
+WantedBy=timers.target

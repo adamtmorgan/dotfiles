@@ -1,0 +1,10 @@
+[Unit]
+Description=awww Wallpaper Cycle
+After=awww-daemon.service graphical-session.target
+Requires=awww-daemon.service
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/hypr/scripts/cycle-awww-wallpaper.sh "%h/wallpapers/Fractal Glass/Favorites/"
+Nice=10

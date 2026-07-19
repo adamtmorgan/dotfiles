@@ -103,6 +103,9 @@ if [[ "$OS" == "Darwin" ]]; then
     create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
     try_link "Lazygit" "$SCRIPT_DIR/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
 elif [[ "$OS" == "Linux" ]]; then
+    # Link systemd custom services
+    try_link "systemd services" "$SCRIPT_DIR/configs/systemd" "$CONFIG_DIR/systemd"
+
     # Ghostty
     try_link "Ghostty" "$SCRIPT_DIR/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
 

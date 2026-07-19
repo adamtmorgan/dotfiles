@@ -7,10 +7,10 @@
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function () 
-  -- hl.exec_cmd(terminal)
-  -- hl.exec_cmd("nm-applet")
-  hl.exec_cmd("hyprpaper")
+hl.on("hyprland.start", function()
+  -- No longer needed - handled via systemd
+  -- hl.exec_cmd("awww-daemon")
+  -- hl.exec_cmd("awww clear 000000")
 
   -- Clipboard support
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
