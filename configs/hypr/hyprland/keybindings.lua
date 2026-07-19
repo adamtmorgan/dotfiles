@@ -18,7 +18,7 @@ local grok            = "/opt/brave-bin/brave --profile-directory=Default --app-
 -----------------------------------------------------------------------------------
 -- Prefixes
 -----------------------------------------------------------------------------------
-local mainMod         = "SUPER" -- Sets "Windows" key as main modifier
+local mainMod         = "SUPER"       -- Sets "Windows" key as main modifier
 local openAppMod      = "SUPER + ALT"
 local resizeMod       = "SUPER + ALT" -- Limit to num keys
 
@@ -122,6 +122,7 @@ hl.bind(openAppMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(openAppMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(openAppMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(steam))
+hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(steam .. " -silent steam://open/gamepadui"))
 hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
 
 -----------------------------------------------------------------------------------
