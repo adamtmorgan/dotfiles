@@ -74,3 +74,28 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.window_rule({ match = { modal = true }, float = true })
+
+-- Float most Steam windows (Settings, game options, friends list, store, etc.)
+hl.window_rule({
+  match = { class = "steam" },
+  float = true
+})
+
+-- Keep the main Steam library window tiled (optional but recommended)
+hl.window_rule({
+  match = { class = "steam", title = "Steam" },
+  float = false   -- or use tile = true
+})
+
+-- Optional: explicitly float common dialog windows
+hl.window_rule({
+  match = { class = "steam", title = "Settings" },
+  float = true
+})
+
+hl.window_rule({
+  match = { class = "steam", title = "Properties" },  -- game options/properties
+  float = true
+})
