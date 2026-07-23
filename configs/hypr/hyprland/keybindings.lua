@@ -11,6 +11,7 @@ local browser         = "brave"
 local menu            = "hyprlauncher"
 local steam           = "steam"
 local passwordManager = "[float] 1password --show"
+local discord         = "discord"
 
 -- Web apps. Installed w/ brave. Found in ~/.local/share/applications/brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default.desktop
 local grok            = "/opt/brave-bin/brave --profile-directory=Default --app-id=ggjocahimgaohmigbfhghnlfcnjemagj"
@@ -124,6 +125,7 @@ hl.bind(openAppMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(steam))
 hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(steam .. " -silent steam://open/gamepadui"))
 hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
+hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(discord))
 
 -----------------------------------------------------------------------------------
 -- Workspaces
