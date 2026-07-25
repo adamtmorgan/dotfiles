@@ -6,5 +6,9 @@ PartOf=graphical-session.target
 
 [Service]
 Type=oneshot
+RemainAfterExit=yes
 ExecStart=%h/.config/hypr/scripts/cycle-awww-wallpaper.sh "%h/wallpapers/Fractal Glass/Favorites/"
 Nice=10
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,13 +1,17 @@
 [Unit]
 Description=awww Wallpaper Daemon
-After=graphical-session.target
+Documentation=man:awww-daemon(1)
 PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=awww-daemon
+ExecStart=/usr/bin/awww-daemon
 Restart=on-failure
 RestartSec=3
+# Optional but helps on some AMD + Hyprland setups
+# Environment=RUST_BACKTRACE=1
 
 [Install]
 WantedBy=graphical-session.target
