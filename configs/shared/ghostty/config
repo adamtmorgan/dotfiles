@@ -1,0 +1,96 @@
+#--------------------------------------------------
+# Settings
+#--------------------------------------------------
+
+# custom-shader = shaders/cursor_warp.glsl
+
+# Theming
+theme = Kanagawabones
+background = 22222B
+unfocused-split-fill = 050505
+unfocused-split-opacity = 0.9
+split-divider-color = 4B4B62
+
+# Font
+font-family = JetBrainsMono Nerd Font
+adjust-underline-position = 20%
+adjust-cell-height = 25%
+adjust-cell-width = 0%
+font-size = 10
+font-thicken = true
+font-thicken-strength = 100
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+cursor-color = FF9D3C
+cursor-text = 060606
+adjust-cursor-thickness = 1
+adjust-cursor-height = 20%
+shell-integration-features = no-cursor
+
+# Window styling
+macos-titlebar-style = tabs
+window-vsync = true
+window-decoration = true
+background-opacity = 0.97
+background-blur-radius = 50
+window-padding-balance = true
+window-padding-x = 12
+window-padding-y = 12
+quick-terminal-position = bottom
+window-height = 55
+window-width = 175
+
+# Custom css styling in linux
+window-theme = ghostty
+gtk-custom-css = ~/.config/ghostty/tab-style.css
+
+# Behavior
+window-save-state = always
+mouse-hide-while-typing = true
+window-step-resize = false
+window-new-tab-position = end
+
+#--------------------------------------------------
+# Bindings
+# 
+# Uses alt-based bindings so they map across linux
+# and macos.
+#--------------------------------------------------
+
+# General
+keybind = alt+shift+,=reload_config
+
+# Tabs
+keybind = alt+t=new_tab
+keybind = alt+w=close_tab
+keybind = alt+shift+t=prompt_tab_title
+keybind = alt+1=goto_tab:1
+keybind = alt+2=goto_tab:2
+keybind = alt+3=goto_tab:3
+keybind = alt+4=goto_tab:4
+keybind = alt+5=goto_tab:5
+keybind = alt+6=goto_tab:6
+keybind = alt+7=goto_tab:7
+keybind = alt+8=goto_tab:8
+keybind = alt+9=goto_tab:9
+keybind = alt+0=last_tab
+
+# Splits
+
+keybind = alt+l=goto_split:right
+keybind = alt+h=goto_split:left
+keybind = alt+k=goto_split:top
+keybind = alt+j=goto_split:bottom
+
+keybind = alt+d=new_split:right
+keybind = alt+shift+d=new_split:down
+
+keybind = alt+shift+l=resize_split:right,50
+keybind = alt+shift+h=resize_split:left,50
+keybind = alt+shift+k=resize_split:up,50
+keybind = alt+shift+j=resize_split:down,50
+keybind = alt+shift+r=equalize_splits
+keybind = alt+shift+f=toggle_split_zoom
+

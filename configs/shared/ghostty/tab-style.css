@@ -1,0 +1,27 @@
+headerbar,
+tabbar tabbox {
+  background-color: transparent;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #4b4b6288;
+}
+
+tabbar tabbox tab {
+  color: #888888;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 13px;
+  margin: 0;
+}
+
+tabbar tabbox separator {
+  background-color: transparent;
+  min-width: 0;
+  opacity: 0;
+}
+
+tabbar tabbox tab:selected {
+  color: #ffffff;
+  border: 1px solid #4b4b6288;
+  background-color: #4b4b6255;
+}

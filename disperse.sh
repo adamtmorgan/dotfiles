@@ -3,9 +3,14 @@
 # Creates symlinks from repo into their default locations in `~` and `~/.config`.
 
 OS=$(uname)
-CONFIG_DIR="$HOME/.config"
-APP_SUPPORT_DIR="$HOME/Library/Application Support"
+HOME_CONFIG="$HOME/.config" # MacOS and Linux
+APP_SUPPORT="$HOME/Library/Application Support" # MacOS only
 LOCAL_PATH="$(dirname "$(realpath "$0")")" # path for script directory
+
+# Local config locations
+SHARED_CONFIGS="$LOCAL_PATH/configs/shared"
+MAC_CONFIGS="$LOCAL_PATH/configs/mac"
+LINUX_CONFIGS="$LOCAL_PATH/configs/linux"
 
 # Links a source to a destination and handles edge cases
 function try_link() {
@@ -45,83 +50,90 @@ function create_path() {
     fi
 }
 
-echo "Linking files from repo at path $LOCAL_PATH..."
+echo "Linking files from repo in $LOCAL_PATH..."
 echo
 
 # --------------------------------------------------
-# MacOS / Linux univeral install locations
+# Shared configs
+# These go to the same place in both MacOS and Linux.
 # --------------------------------------------------
 
-# mise config
-try_link "Mise" "$LOCAL_PATH/configs/mise" "$CONFIG_DIR/mise"
+# zellij
+create_path "zellij" "$HOME_CONFIG/zellij"
+try_link "Zellij" "$SHARED_CONFIGS/zellij.kdl" "$HOME_CONFIG/zellij/config.kdl"
 
-# zellij config
-create_path "zellij" "$CONFIG_DIR/zellij"
-try_link "Zellij" "$LOCAL_PATH/configs/zellij.kdl" "$CONFIG_DIR/zellij/config.kdl"
+# Wezterm
+try_link "Wezterm" "$SHARED_CONFIGS/wezterm" "$HOME_CONFIG/wezterm"
 
-# Link Wezterm config
-try_link "Wezterm" "$LOCAL_PATH/configs/wezterm" "$CONFIG_DIR/wezterm"
+# Starship
+try_link "Starship" "$SHARED_CONFIGS/starship.toml" "$HOME_CONFIG/starship.toml"
 
-# Link Starship config
-try_link "Starship" "$LOCAL_PATH/configs/starship.toml" "$CONFIG_DIR/starship.toml"
+# Btop
+create_path "btop" "$HOME_CONFIG/btop"
+try_link "Btop++" "$SHARED_CONFIGS/btop.conf" "$HOME_CONFIG/btop/btop.conf"
 
-# Link btop config
-create_path "btop" "$CONFIG_DIR/btop"
-try_link "Btop++" "$LOCAL_PATH/configs/btop.conf" "$CONFIG_DIR/btop/btop.conf"
+# OpenCode
+create_path "opencode" "$HOME_CONFIG/opencode"
+create_path "opencode themes" "$HOME_CONFIG/opencode/themes"
+try_link "opencode" "$SHARED_CONFIGS/opencode/opencode.jsonc" "$HOME_CONFIG/opencode/opencode.jsonc"
+try_link "opencode tui config" "$SHARED_CONFIGS/opencode/tui.jsonc" "$HOME_CONFIG/opencode/tui.jsonc"
+try_link "opencode kanagawa custom theme" "$SHARED_CONFIGS/opencode/kanagawa-custom.json" "$HOME_CONFIG/opencode/themes/kanagawa-custom.json"
+try_link "opencode AGENTS.md" "$SHARED_CONFIGS/opencode/AGENTS.md" "$HOME_CONFIG/opencode/themes/AGENTS.md"
 
-# Link opencode config
-create_path "opencode" "$CONFIG_DIR/opencode"
-create_path "opencode themes" "$CONFIG_DIR/opencode/themes"
-try_link "opencode" "$LOCAL_PATH/configs/opencode/opencode.jsonc" "$CONFIG_DIR/opencode/opencode.jsonc"
-try_link "opencode tui config" "$LOCAL_PATH/configs/opencode/tui.jsonc" "$CONFIG_DIR/opencode/tui.jsonc"
-try_link "opencode kanagawa custom theme" "$LOCAL_PATH/configs/opencode/kanagawa-custom.json" "$CONFIG_DIR/opencode/themes/kanagawa-custom.json"
-try_link "opencode AGENTS.md" "$LOCAL_PATH/configs/opencode/AGENTS.md" "$CONFIG_DIR/opencode/themes/AGENTS.md"
-
-# Link bat config
-try_link "bat" "$LOCAL_PATH/configs/bat" "$CONFIG_DIR/bat"
-
-# Link IdeaVim config
-try_link "IdeaVim" "$LOCAL_PATH/configs/ideavimrc" "$HOME/.ideavimrc"
+# Bat
+try_link "bat" "$SHARED_CONFIGS/bat" "$HOME_CONFIG/bat"
 
 # Link ripgrep ignore config
-try_link "Ripgrep Ignore" "$LOCAL_PATH/configs/ripgrep.ignore" "$CONFIG_DIR/ripgrep.ignore"
+try_link "Ripgrep Ignore" "$SHARED_CONFIGS/ripgrep.ignore" "$HOME_CONFIG/ripgrep.ignore"
 
 # --------------------------------------------------
-# MacOS / Linux uniuqe install locations
+# MacOS configs
 # --------------------------------------------------
 
 if [[ "$OS" == "Darwin" ]]; then
-    # Ghostty
-    try_link "Ghostty" "$LOCAL_PATH/configs/ghostty" "$APP_SUPPORT_DIR/com.mitchellh.ghostty"
-
-    # Link k9s config
-    create_path "k9s" "$APP_SUPPORT_DIR/k9s"
-    try_link "k9s config" "$LOCAL_PATH/configs/k9s/config.yaml" "$APP_SUPPORT_DIR/k9s/config.yaml"
-    try_link "k9s skins" "$LOCAL_PATH/configs/k9s/skins" "$APP_SUPPORT_DIR/k9s/skins"
-
-    # Link Lazygit config
-    create_path "k9s" "$APP_SUPPORT_DIR/lazygit"
-    try_link "Lazygit" "$LOCAL_PATH/configs/lazygit.yml" "$APP_SUPPORT_DIR/lazygit/config.yml"
-elif [[ "$OS" == "Linux" ]]; then
-    # Link systemd custom services
-    try_link "systemd services" "$LOCAL_PATH/configs/systemd" "$CONFIG_DIR/systemd"
+    # Mise
+    try_link "Mise" "$MAC_CONFIGS/mise" "$HOME_CONFIG/mise"
 
     # Ghostty
-    try_link "Ghostty" "$LOCAL_PATH/configs/ghostty-linux" "$CONFIG_DIR/ghostty"
+    try_link "Ghostty" "$MAC_CONFIGS/ghostty" "$APP_SUPPORT/com.mitchellh.ghostty"
 
-    # Link k9s config
-    create_path "k9s" "$CONFIG_DIR/k9s"
-    try_link "k9s config" "$LOCAL_PATH/configs/k9s/config.yaml" "$CONFIG_DIR/k9s/config.yaml"
-    try_link "k9s skins" "$LOCAL_PATH/configs/k9s/skins" "$CONFIG_DIR/k9s/skins"
+    # k9s - Shared config file, but different locations per platform
+    create_path "k9s" "$APP_SUPPORT/k9s"
+    try_link "k9s config" "$SHARED_CONFIGS/k9s/config.yaml" "$APP_SUPPORT/k9s/config.yaml"
+    try_link "k9s skins" "$SHARED_CONFIGS/k9s/skins" "$APP_SUPPORT/k9s/skins"
 
-    # Link Lazygit config
-    create_path "k9s" "$CONFIG_DIR/lazygit"
-    try_link "Lazygit" "$LOCAL_PATH/configs/lazygit.yml" "$CONFIG_DIR/lazygit/config.yml"
+    # Lazygit - Shared config file, but different locations per platform
+    create_path "k9s" "$APP_SUPPORT/lazygit"
+    try_link "Lazygit" "$MAC_CONFIGS/lazygit.yml" "$APP_SUPPORT/lazygit/config.yml"
+
+    # IdeaVim
+    try_link "IdeaVim" "$SHARED_CONFIGS/ideavimrc" "$HOME/.ideavimrc"
+fi
+
+# --------------------------------------------------
+# Linux configs
+# --------------------------------------------------
+
+if [[ "$OS" == "Linux" ]]; then
+    # systemd custom services
+    try_link "systemd services" "$LINUX_CONFIGS/systemd" "$HOME_CONFIG/systemd"
+
+    # Ghostty
+    try_link "Ghostty" "$LINUX_CONFIGS/ghostty-linux" "$HOME_CONFIG/ghostty"
+
+    # k9s - Shared config file, but different locations per platform
+    create_path "k9s" "$HOME_CONFIG/k9s"
+    try_link "k9s config" "$SHARED_CONFIGS/k9s/config.yaml" "$HOME_CONFIG/k9s/config.yaml"
+    try_link "k9s skins" "$SHARED_CONFIGS/k9s/skins" "$HOME_CONFIG/k9s/skins"
+
+    # Lazygit - Shared config file, but different locations per platform
+    create_path "Lazygit" "$HOME_CONFIG/lazygit"
+    try_link "Lazygit" "$SHARED_CONFIGS/lazygit.yml" "$HOME_CONFIG/lazygit/config.yml"
 
     # Hyprland and hypr configs
-    try_link "Hypr config" "$LOCAL_PATH/configs/hypr" "$CONFIG_DIR/hypr"
+    try_link "Hypr config" "$LINUX_CONFIGS/hypr" "$HOME_CONFIG/hypr"
 
     # Link custom binaries/scripts
     create_path "~/bin" "$HOME/bin"
-    try_link "hyprscope (gamescope/hyprland util)" "$LOCAL_PATH/configs/hypr/scripts/hyprscope/hyprscope.sh" "$HOME/bin/hyprscope"
+    try_link "hyprscope (gamescope/hyprland util)" "$LINUX_CONFIGS/hypr/scripts/hyprscope/hyprscope.sh" "$HOME/bin/hyprscope"
 fi
