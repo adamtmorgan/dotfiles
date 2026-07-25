@@ -125,6 +125,9 @@ if [[ "$OS" == "Linux" ]]; then
     # systemd custom services
     try_link "systemd services" "$LINUX_CONFIGS/systemd" "$HOME_CONFIG/systemd"
 
+    # systemd custom services
+    try_link "xdg-desktop-portal config" "$LINUX_CONFIGS/xdg-desktop-portal" "$HOME_CONFIG/xdg-desktop-portal"
+
     # Ghostty
     try_link "Ghostty" "$LINUX_CONFIGS/ghostty" "$HOME_CONFIG/ghostty"
 
