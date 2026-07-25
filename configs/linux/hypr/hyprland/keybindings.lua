@@ -126,13 +126,14 @@ hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(steam))
 hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(steam .. " -silent steam://open/gamepadui"))
 hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
 hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(discord))
+hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(passwordManager))
 
 -----------------------------------------------------------------------------------
 -- Workspaces
 -----------------------------------------------------------------------------------
 hl.bind(mainMod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("1password"))
-hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(passwordManager))
-hl.bind(mainMod .. " + 0", hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind(mainMod .. " + BRACKETRIGHT", hl.dsp.workspace.toggle_special("comms"))
+hl.bind(mainMod .. " + BRACKETLEFT", hl.dsp.workspace.toggle_special("scratchpad"))
 
 -----------------------------------------------------------------------------------
 -- Laptop multimedia keys for volume and LCD brightness

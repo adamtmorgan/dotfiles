@@ -34,6 +34,18 @@ hl.window_rule({
 })
 
 --------------------------------------------------
+--- Comms Workspace
+--------------------------------------------------
+
+hl.workspace_rule({
+  workspace = "special:comms",
+  persistent = true,
+  on_created_empty = grok_cmd,
+})
+
+-- TODO: Automatically put Discord here
+
+--------------------------------------------------
 --- Scratchpad Space
 --------------------------------------------------
 
