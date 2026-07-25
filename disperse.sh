@@ -5,12 +5,12 @@
 OS=$(uname)
 HOME_CONFIG="$HOME/.config" # MacOS and Linux
 APP_SUPPORT="$HOME/Library/Application Support" # MacOS only
-LOCAL_PATH="$(dirname "$(realpath "$0")")" # path for script directory
+REPO_RELAPATH="$(dirname "$(realpath "$0")")" # path for script directory
 
 # Local config locations
-SHARED_CONFIGS="$LOCAL_PATH/configs/shared"
-MAC_CONFIGS="$LOCAL_PATH/configs/mac"
-LINUX_CONFIGS="$LOCAL_PATH/configs/linux"
+SHARED_CONFIGS="$REPO_RELAPATH/configs/shared"
+MAC_CONFIGS="$REPO_RELAPATH/configs/mac"
+LINUX_CONFIGS="$REPO_RELAPATH/configs/linux"
 
 # Links a source to a destination and handles edge cases
 function try_link() {
@@ -50,7 +50,7 @@ function create_path() {
     fi
 }
 
-echo "Linking files from repo in $LOCAL_PATH..."
+echo "Linking files from repo in $REPO_RELAPATH..."
 echo
 
 # --------------------------------------------------
@@ -98,12 +98,16 @@ if [[ "$OS" == "Darwin" ]]; then
     try_link "Ghostty" "$MAC_CONFIGS/ghostty" "$APP_SUPPORT/com.mitchellh.ghostty"
 
     # k9s - Shared config file, but different locations per platform
+    # K9s maintains its own files per instance in its config directory, which is why
+    # I'm only linking the parts that I want to track in version control.
     create_path "k9s" "$APP_SUPPORT/k9s"
     try_link "k9s config" "$SHARED_CONFIGS/k9s/config.yaml" "$APP_SUPPORT/k9s/config.yaml"
     try_link "k9s skins" "$SHARED_CONFIGS/k9s/skins" "$APP_SUPPORT/k9s/skins"
 
     # Lazygit - Shared config file, but different locations per platform
-    create_path "k9s" "$APP_SUPPORT/lazygit"
+    # Lazygit maintains its own files per instance in its config directory, which is why
+    # I'm only linking the parts that I want to track in version control.
+    create_path "Lazygit" "$APP_SUPPORT/lazygit"
     try_link "Lazygit" "$MAC_CONFIGS/lazygit.yml" "$APP_SUPPORT/lazygit/config.yml"
 
     # IdeaVim
@@ -115,11 +119,14 @@ fi
 # --------------------------------------------------
 
 if [[ "$OS" == "Linux" ]]; then
+    # Mise
+    try_link "Mise" "$LINUX_CONFIGS/mise" "$HOME_CONFIG/mise"
+
     # systemd custom services
     try_link "systemd services" "$LINUX_CONFIGS/systemd" "$HOME_CONFIG/systemd"
 
     # Ghostty
-    try_link "Ghostty" "$LINUX_CONFIGS/ghostty-linux" "$HOME_CONFIG/ghostty"
+    try_link "Ghostty" "$LINUX_CONFIGS/ghostty" "$HOME_CONFIG/ghostty"
 
     # k9s - Shared config file, but different locations per platform
     create_path "k9s" "$HOME_CONFIG/k9s"
@@ -135,5 +142,4 @@ if [[ "$OS" == "Linux" ]]; then
 
     # Link custom binaries/scripts
     create_path "~/bin" "$HOME/bin"
-    try_link "hyprscope (gamescope/hyprland util)" "$LINUX_CONFIGS/hypr/scripts/hyprscope/hyprscope.sh" "$HOME/bin/hyprscope"
 fi
