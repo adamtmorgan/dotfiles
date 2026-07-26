@@ -12,6 +12,7 @@ local menu            = "hyprlauncher"
 local steam           = "steam"
 local passwordManager = "[float] 1password --show"
 local discord         = "discord"
+local audio_settings  = "pavucontrol"
 
 -- Web apps. Installed w/ brave. Found in ~/.local/share/applications/brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default.desktop
 local grok            = "/opt/brave-bin/brave --profile-directory=Default --app-id=ggjocahimgaohmigbfhghnlfcnjemagj"
@@ -127,6 +128,7 @@ hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(steam .. " -silent steam:/
 hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
 hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(discord))
 hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(passwordManager))
+hl.bind(openAppMod .. " + A", hl.dsp.exec_cmd(audio_settings))
 
 -----------------------------------------------------------------------------------
 -- Workspaces
