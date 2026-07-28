@@ -77,9 +77,10 @@ hl.bind(mainMod .. " + c", hl.dsp.window.center())
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 9 do
-    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
