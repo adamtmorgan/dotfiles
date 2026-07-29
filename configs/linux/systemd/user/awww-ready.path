@@ -1,0 +1,17 @@
+# awww-daemon creates a Unix socket when it is ready to accept clients. 
+# A .path unit watches for that socket file and only then starts 
+# wallpaper-cycle.service. This is the closest equivalent to an 
+# await that systemd offers for programs that do not implement sd_notify.
+
+[Unit]
+Description=Wait for awww-daemon socket
+PartOf=graphical-session.target
+
+[Path]
+# Matches the socket name in journal
+PathExists=%t/wayland-1-awww-daemon.sock
+PathExists=%t/wayland-0-awww-daemon.sock
+Unit=wallpaper-cycle.service
+
+[Install]
+WantedBy=graphical-session.target

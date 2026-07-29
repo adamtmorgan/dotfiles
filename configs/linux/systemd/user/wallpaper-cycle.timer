@@ -6,8 +6,7 @@ After=graphical-session.target
 OnCalendar=*:0/30
 Persistent=true
 RandomizedDelaySec=30
-# Optional: also fire a short time after the timer itself becomes active
-# OnActiveSec=15s
+Unit=wallpaper-cycle.service
 
 [Install]
 WantedBy=timers.target
