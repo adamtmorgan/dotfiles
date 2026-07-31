@@ -13,7 +13,7 @@ hl.on("hyprland.start", function()
   -- hl.exec_cmd("awww clear 000000")
 
   -- Prefer default theme for gnome UIs
-  hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+  -- hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 
   -- Clipboard support
   hl.exec_cmd("wl-paste --type text --watch cliphist store")

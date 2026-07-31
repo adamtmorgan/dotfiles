@@ -6,8 +6,7 @@
 -- Apps
 -----------------------------------------------------------------------------------
 local terminal        = "ghostty"
--- local fileManager     = "dolphin"
-local fileManager     = "nautilus"
+local fileManager     = "dolphin"
 local browser         = "brave"
 local menu            = "hyprlauncher"
 local steam           = "steam"
