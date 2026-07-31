@@ -19,9 +19,9 @@ hl.monitor({
 })
 
 -- 4k TV
--- hl.monitor({
---     output   = "HTDMI-1",
---     mode     = "preferred",
---     position = "auto",
---     scale    = "2.5",
--- })
+hl.monitor({
+    output   = "desc:LG Electronics LG TV 0x01010101",
+    mode     = "preferred",
+    position = "auto",
+    scale    = "2.5",
+})
