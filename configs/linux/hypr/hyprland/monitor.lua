@@ -2,11 +2,26 @@
 ---- MONITORS ----
 ------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
+-- Default
 hl.monitor({
     output   = "",
     mode     = "preferred",
     position = "auto",
-    scale    = "1.25"
-    -- scale    = "2",
+    scale    = "1"
 })
+
+-- LG Ultrawide 5k2k
+hl.monitor({
+    output   = "DP-1",
+    mode     = "preferred",
+    position = "auto",
+    scale    = "1.25"
+})
+
+-- 4k TV
+-- hl.monitor({
+--     output   = "HTDMI-1",
+--     mode     = "preferred",
+--     position = "auto",
+--     scale    = "2.5",
+-- })
