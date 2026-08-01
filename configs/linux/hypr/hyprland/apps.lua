@@ -28,5 +28,6 @@ return {
     onepassword = "1password",
     grok = "brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default",
     spotify = "brave-pjibgclleladliembfgfagdaldikeohf-Default",
+    pavucontrol = "org.pulseaudio.pavucontrol",
   },
 }

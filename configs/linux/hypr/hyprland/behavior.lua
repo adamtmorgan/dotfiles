@@ -1,4 +1,6 @@
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
+local apps = require("hyprland/apps")
+
 hl.config({
     dwindle = {
         preserve_split = true, -- You probably want this
@@ -76,6 +78,14 @@ hl.window_rule({
 })
 
 hl.window_rule({ match = { modal = true }, float = true })
+
+-- Volume Control (pavucontrol): float, centered, same size as resizeMod+1 (25% x 70%)
+hl.window_rule({
+  match = { class = apps.class.pavucontrol },
+  float = true,
+  center = true,
+  size = { "(monitor_w*0.25)", "(monitor_h*0.7)" },
+})
 
 -- Float most Steam windows (Settings, game options, friends list, store, etc.)
 hl.window_rule({
