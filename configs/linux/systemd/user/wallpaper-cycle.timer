@@ -1,6 +1,7 @@
 [Unit]
 Description=Run wallpaper cycle every 30 minutes
 After=graphical-session.target
+Requires=awww-daemon.service
 
 [Timer]
 OnCalendar=*:0/30

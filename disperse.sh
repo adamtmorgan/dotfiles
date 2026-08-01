@@ -12,6 +12,29 @@ SHARED_CONFIGS="$REPO_RELAPATH/configs/shared"
 MAC_CONFIGS="$REPO_RELAPATH/configs/mac"
 LINUX_CONFIGS="$REPO_RELAPATH/configs/linux"
 
+# Pretty output (disabled when stdout is not a TTY)
+if [[ -t 1 ]]; then
+    BOLD=$'\033[1m'
+    DIM=$'\033[2m'
+    CYAN=$'\033[36m'
+    GREEN=$'\033[32m'
+    RESET=$'\033[0m'
+else
+    BOLD= DIM= CYAN= GREEN= RESET=
+fi
+
+echo_heading() {
+    echo "${BOLD}${CYAN}==>${RESET} ${BOLD}$*${RESET}"
+}
+
+echo_step() {
+    echo "  ${DIM}*${RESET} $*"
+}
+
+echo_done() {
+    echo "${BOLD}${GREEN}==>${RESET} ${BOLD}$*${RESET}"
+}
+
 # Links a source to a destination and handles edge cases
 function try_link() {
     configName=$1
@@ -50,7 +73,8 @@ function create_path() {
     fi
 }
 
-echo "Linking files from repo in $REPO_RELAPATH..."
+echo
+echo_heading "Linking files from repo in $REPO_RELAPATH"
 echo
 
 # --------------------------------------------------
@@ -122,10 +146,21 @@ if [[ "$OS" == "Linux" ]]; then
     # Mise
     try_link "Mise" "$LINUX_CONFIGS/mise" "$HOME_CONFIG/mise"
 
-    # systemd custom services
-    try_link "systemd services" "$LINUX_CONFIGS/systemd" "$HOME_CONFIG/systemd"
+    # UWSM session environment
+    try_link "UWSM env" "$LINUX_CONFIGS/uwsm" "$HOME_CONFIG/uwsm"
 
-    # systemd custom services
+    # systemd user units (individual files so enablement wants/ stay off-repo)
+    create_path "systemd user" "$HOME_CONFIG/systemd/user"
+    if [ -L "$HOME_CONFIG/systemd" ]; then
+        rm "$HOME_CONFIG/systemd"
+        create_path "systemd user" "$HOME_CONFIG/systemd/user"
+    fi
+    try_link "awww-daemon.service" "$LINUX_CONFIGS/systemd/user/awww-daemon.service" "$HOME_CONFIG/systemd/user/awww-daemon.service"
+    try_link "wallpaper-cycle.service" "$LINUX_CONFIGS/systemd/user/wallpaper-cycle.service" "$HOME_CONFIG/systemd/user/wallpaper-cycle.service"
+    try_link "wallpaper-initial.service" "$LINUX_CONFIGS/systemd/user/wallpaper-initial.service" "$HOME_CONFIG/systemd/user/wallpaper-initial.service"
+    try_link "wallpaper-cycle.timer" "$LINUX_CONFIGS/systemd/user/wallpaper-cycle.timer" "$HOME_CONFIG/systemd/user/wallpaper-cycle.timer"
+
+    # xdg-desktop-portal
     try_link "xdg-desktop-portal config" "$LINUX_CONFIGS/xdg-desktop-portal" "$HOME_CONFIG/xdg-desktop-portal"
 
     # Ghostty
@@ -145,4 +180,35 @@ if [[ "$OS" == "Linux" ]]; then
 
     # Link custom binaries/scripts
     create_path "~/bin" "$HOME/bin"
+
+    # --------------------------------------------------
+    # systemd user services (after all linking)
+    # --------------------------------------------------
+    echo
+    echo_heading "Configuring systemd user units"
+
+    echo_step "Reloading systemd user daemon..."
+    systemctl --user daemon-reload
+
+    echo_step "Clearing obsolete wallpaper path units..."
+    # Clear obsolete enablement without touching unit-file symlinks (disable can delete them)
+    rm -f "$HOME_CONFIG/systemd/user/graphical-session.target.wants/wallpaper-cycle.service"
+    rm -f "$HOME_CONFIG/systemd/user/graphical-session.target.wants/awww-ready.path"
+    rm -f "$HOME_CONFIG/systemd/user/awww-ready.path"
+    systemctl --user stop awww-ready.path 2>/dev/null || true
+
+    echo_step "Enabling awww-daemon.service, wallpaper-initial.service, wallpaper-cycle.timer, cliphist.service..."
+    systemctl --user enable awww-daemon.service wallpaper-initial.service wallpaper-cycle.timer cliphist.service
+
+    echo_step "Starting awww-daemon.service..."
+    systemctl --user start awww-daemon.service
+
+    echo_step "Starting wallpaper-cycle.timer..."
+    systemctl --user start wallpaper-cycle.timer
+
+    echo_step "Starting cliphist.service..."
+    systemctl --user start cliphist.service
+
+    echo
+    echo_done "Systemd user units configured."
 fi

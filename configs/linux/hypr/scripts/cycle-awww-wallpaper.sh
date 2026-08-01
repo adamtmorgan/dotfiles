@@ -7,10 +7,12 @@ TRANSITION_DURATION=2
 TRANSITION_FPS=160
 TRANSITION_STEP=90
 
-# Skip if a fullscreen window (game) is running
-if hyprctl -j clients | jq -r '.[] | select(.fullscreen == true) | .class' | grep -q .; then
-    echo "$(date): Fullscreen window detected - skipping"
-    exit 0
+# Skip if a fullscreen window (game) is running. Tolerate early/unavailable hyprctl.
+if clients_json="$(hyprctl -j clients 2>/dev/null)" && [[ -n "$clients_json" ]]; then
+    if echo "$clients_json" | jq -e '.[] | select(.fullscreen == true)' >/dev/null 2>&1; then
+        echo "$(date): Fullscreen window detected - skipping"
+        exit 0
+    fi
 fi
 
 # Pick random image

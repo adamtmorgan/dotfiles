@@ -2,8 +2,7 @@
 -- CURSOR
 -------------------
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+-- XCURSOR_SIZE / HYPRCURSOR_SIZE: ~/.config/uwsm/env and env-hyprland
 
 hl.config({
     cursor = {

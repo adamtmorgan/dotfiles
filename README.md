@@ -54,6 +54,17 @@ If things still aren't working, try adding the following to your `.zprofile` fil
 $ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
+## Linux (CachyOS + Hyprland)
+
+On Linux, `disperse.sh` also links UWSM env files and systemd user units, then enables:
+
+- `awww-daemon.service`
+- `wallpaper-initial.service`
+- `wallpaper-cycle.timer`
+- `cliphist.service`
+
+Session environment for Hyprland under UWSM lives in `~/.config/uwsm/env` and `~/.config/uwsm/env-hyprland` (not `hl.env` in Hyprland).
+
 ### Mise-managed CLIs
 
 The mise global config manages most of the CLIs here. Calling `mise install` will

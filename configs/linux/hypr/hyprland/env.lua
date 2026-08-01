@@ -2,10 +2,5 @@
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 
-hl.env("GTK_THEME", "Adwaita:dark")
--- hl.env("STEAM_FORCE_DESKTOPUI_SCALING", "1.25")
--- hl.env("GDK_SCALE", "1.33")
--- hl.env("QT_SCALE_FACTOR", "1.33")
-
--- Add user/bin to path
-hl.env("PATH", os.getenv("HOME") .. "/bin:" .. os.getenv("PATH"))
+-- Session env lives in ~/.config/uwsm/env (and env-hyprland) under UWSM.
+-- Do not set graphical-session vars with hl.env() here.

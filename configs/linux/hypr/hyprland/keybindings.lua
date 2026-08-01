@@ -2,20 +2,7 @@
 ---- KEYBINDINGS ----
 ---------------------
 
------------------------------------------------------------------------------------
--- Apps
------------------------------------------------------------------------------------
-local terminal        = "ghostty"
-local fileManager     = "dolphin"
-local browser         = "brave"
-local menu            = "hyprlauncher"
-local steam           = "steam"
-local passwordManager = "[float] 1password --show"
-local discord         = "discord"
-local audio_settings  = "pavucontrol"
-
--- Web apps. Installed w/ brave. Found in ~/.local/share/applications/brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default.desktop
-local grok            = "/opt/brave-bin/brave --profile-directory=Default --app-id=ggjocahimgaohmigbfhghnlfcnjemagj"
+local apps = require("hyprland/apps")
 
 -----------------------------------------------------------------------------------
 -- Prefixes
@@ -27,9 +14,8 @@ local resizeMod       = "SUPER + ALT" -- Limit to num keys
 -----------------------------------------------------------------------------------
 -- Main
 -----------------------------------------------------------------------------------
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + SHIFT + Q",
-    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(apps.menu))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("uwsm stop"))
 
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
@@ -121,15 +107,15 @@ hl.bind(resizeMod .. "+ 4", function() resizeByScreen(1, 1) end)
 -----------------------------------------------------------------------------------
 -- Apps
 -----------------------------------------------------------------------------------
-hl.bind(openAppMod .. " + T", hl.dsp.exec_cmd(terminal))
-hl.bind(openAppMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(openAppMod .. " + F", hl.dsp.exec_cmd(fileManager))
-hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(steam))
-hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(steam .. " -silent steam://open/gamepadui"))
-hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(grok))
-hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(discord))
-hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(passwordManager))
-hl.bind(openAppMod .. " + A", hl.dsp.exec_cmd(audio_settings))
+hl.bind(openAppMod .. " + T", hl.dsp.exec_cmd(apps.terminal))
+hl.bind(openAppMod .. " + B", hl.dsp.exec_cmd(apps.browser))
+hl.bind(openAppMod .. " + F", hl.dsp.exec_cmd(apps.file_manager))
+hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(apps.steam))
+hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(apps.steam .. " -silent steam://open/gamepadui"))
+hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(apps.grok))
+hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(apps.discord))
+hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(apps.password_manager))
+hl.bind(openAppMod .. " + A", hl.dsp.exec_cmd(apps.audio_settings))
 
 -----------------------------------------------------------------------------------
 -- Workspaces

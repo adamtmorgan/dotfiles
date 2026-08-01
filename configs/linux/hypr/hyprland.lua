@@ -11,6 +11,7 @@ require("hyprland/keybindings")
 require("hyprland/monitor")
 require("hyprland/permissions")
 require("hyprland/style")
+require("hyprland/workspaces")
 require("hyprland/1password")
 
 ----------------

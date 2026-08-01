@@ -2,63 +2,49 @@
 -- Workspace Rules (Special / Scratchpad)
 -- =====================
 
+local apps = require("hyprland/apps")
+
 --------------------------------------------------
 --- 1Password Space
 --------------------------------------------------
 
 hl.workspace_rule({
   workspace = "special:1password",
-  on_created_empty = "[float] 1password --show",
+  on_created_empty = apps.password_manager,
   persistent = true,
 })
 
---------------------------------------------------
---- Grok Space
---------------------------------------------------
-
-local grok_cmd = "/opt/brave-bin/brave --profile-directory=Default --app-id=ggjocahimgaohmigbfhghnlfcnjemagj"
-
-hl.workspace_rule({
-  workspace = "special:grok",
-  persistent = true,
-  on_created_empty = grok_cmd,
-})
-
-hl.window_rule({
-  -- IMPORTANT: actual class/title from `hyprctl clients`
-  match = { class = "brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default" },
-  workspace = "special:grok",
-  -- float = true,
-  -- size = { x = 1200, y = 800 },
-  -- center = true,
-})
+-- No class→workspace rule: 1Password also shows transient auth prompts (e.g. SSH)
+-- that should stay on the current workspace, not pull open special:1password.
 
 --------------------------------------------------
---- Comms Workspace
+--- Comms Workspace (Discord)
 --------------------------------------------------
 
 hl.workspace_rule({
   workspace = "special:comms",
+  on_created_empty = apps.discord,
   persistent = true,
-  on_created_empty = grok_cmd,
 })
 
--- TODO: Automatically put Discord here
+hl.window_rule({
+  match = { class = apps.class.discord },
+  workspace = "special:comms",
+})
 
 --------------------------------------------------
---- Scratchpad Space
+--- Scratchpad Space - Usually an AI chat with
+--- other random things.
 --------------------------------------------------
 
 hl.workspace_rule({
   workspace = "special:scratchpad",
-  on_created_empty = "ghostty"
-  -- You can also do "[float] foot" if you want everything floating here
+  on_created_empty = apps.terminal,
+  persistent = true,
 })
 
--- Optional: Force floating + nice defaults on the scratchpad workspace
--- hl.window_rule({
---     match = { workspace = "special:scratchpad" },
---     float = true,
---     size = { 800, 600 },        -- optional fixed size
---     center = true,
--- })
+-- Grok (Brave PWA) → scratchpad when opened
+hl.window_rule({
+  match = { class = apps.class.grok },
+  workspace = "special:scratchpad",
+})

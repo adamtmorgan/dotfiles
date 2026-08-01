@@ -11,6 +11,7 @@ require("keybindings")
 require("monitor")
 require("permissions")
 require("style")
+require("workspaces")
 require("1password")
 
 ----------------
