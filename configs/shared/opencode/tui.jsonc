@@ -6,5 +6,7 @@
         "messages_page_down": "pagedown,ctrl+d",
         "prompt.autocomplete.prev": "up,ctrl+k",
         "prompt.autocomplete.next": "down,ctrl+j",
+        "dialog.select.prev": "up,ctrl+k",
+        "dialog.select.next": "down,ctrl+j",
     }
 }

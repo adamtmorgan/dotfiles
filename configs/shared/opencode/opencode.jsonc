@@ -2,7 +2,9 @@
     "$schema": "https://opencode.ai/config.json",
     // "model": "anthropic/claude-sonnet-4-5",
     "autoupdate": true,
-    //"server": {
-    //    "port": 4096,
-    //},
+    "plugin": []
+    // Using https://github.com/Nomadcxx/opencode-cursor to bridge
+    // Cursor Pro subscription to OpenCode for now. Below was bugged
+    // at time of testing.
+    //"plugin": ["opencode-cursor-oauth"]
 }
