@@ -7,12 +7,12 @@ require("hyprland/behavior")
 require("hyprland/cursor")
 require("hyprland/env")
 require("hyprland/input")
+require("hyprland/apps") -- app cmds, window rules, launch binds
 require("hyprland/keybindings")
 require("hyprland/monitor")
 require("hyprland/permissions")
 require("hyprland/style")
 require("hyprland/workspaces")
-require("hyprland/1password")
 
 ----------------
 ----  MISC  ----
@@ -26,34 +26,3 @@ hl.config({
         background_color         = "0x000000",
     }
 })
-
--- For retaining steam big picture mode after game closes
-hl.on("window.active", function(w)
-    if w and
-        w.class == "steam" and
-        w.title == "Steam Big Picture Mode" then
-        hl.dispatch(hl.dsp.window.fullscreen({
-            action = "set",
-            mode = "fullscreen"
-        }))
-    end
-end)
-
--- Big Picture Mode
-hl.window_rule({
-    match = {
-        class = "^[Ss]team$",
-        title = "^Steam Big Picture Mode$",
-    },
-    fullscreen = true,
-    suppress_event = "fullscreen",
-})
-
--- Steam Overlay / Menus (in-game)
--- hl.window_rule({
---     match = {
---         class = "^[Ss]team$",
---     },
---     float = true,
---     stay_focused = true,
--- })

@@ -1,33 +1,33 @@
--- Shared app launch commands and window classes for Hyprland config modules.
--- Prefer `uwsm app` so launches land in app-graphical.slice under UWSM.
+-- App registry: loads per-app modules, runs setup(), exports a flat API.
+-- Usage: local apps = require("hyprland/apps")
+--        apps.discord, apps.class.discord, …
+-- Modules live in hyprland/app/ (singular) to avoid clashing with this package name.
+--
+-- NOTE: parenthesize require() — it returns a second value that would otherwise
+-- pollute the array constructor (classic Lua gotcha).
 
-local function uwsm(cmdline)
-  return "uwsm app -- " .. cmdline
+local modules = {
+  (require("hyprland/app/ghostty")),
+  (require("hyprland/app/dolphin")),
+  (require("hyprland/app/brave")),
+  (require("hyprland/app/hyprlauncher")),
+  (require("hyprland/app/steam")),
+  (require("hyprland/app/onepassword")),
+  (require("hyprland/app/discord")),
+  (require("hyprland/app/pavucontrol")),
+  (require("hyprland/app/grok")),
+  (require("hyprland/app/spotify")),
+}
+
+local export = { class = {} }
+
+for _, mod in ipairs(modules) do
+  assert(type(mod) == "table" and mod.key, "app module missing key: " .. tostring(mod))
+  export[mod.key] = mod.cmd
+  if mod.class then
+    export.class[mod.key] = mod.class
+  end
+  mod.setup()
 end
 
--- Brave PWAs under ~/.local/share/applications/brave-*-Default.desktop
-local grok_exec =
-  "/opt/brave-bin/brave --profile-directory=Default --app-id=ggjocahimgaohmigbfhghnlfcnjemagj"
-local spotify_exec =
-  "/opt/brave-bin/brave --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
-
-return {
-  terminal = uwsm("ghostty"),
-  file_manager = uwsm("dolphin"),
-  browser = uwsm("brave"),
-  menu = "hyprlauncher",
-  steam = uwsm("steam"),
-  password_manager = "[float] " .. uwsm("1password --show"),
-  discord = uwsm("discord"),
-  audio_settings = uwsm("pavucontrol"),
-  grok = uwsm(grok_exec),
-  spotify = uwsm(spotify_exec),
-
-  class = {
-    discord = "discord",
-    onepassword = "1password",
-    grok = "brave-ggjocahimgaohmigbfhghnlfcnjemagj-Default",
-    spotify = "brave-pjibgclleladliembfgfagdaldikeohf-Default",
-    pavucontrol = "org.pulseaudio.pavucontrol",
-  },
-}
+return export

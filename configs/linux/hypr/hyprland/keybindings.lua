@@ -1,20 +1,16 @@
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
+-- Compositor / system binds only. App launch binds live in hyprland/app/*.lua
 
-local apps = require("hyprland/apps")
+local mods = require("hyprland/mods")
 
------------------------------------------------------------------------------------
--- Prefixes
------------------------------------------------------------------------------------
-local mainMod         = "SUPER"       -- Sets "Windows" key as main modifier
-local openAppMod      = "SUPER + ALT"
-local resizeMod       = "SUPER + ALT" -- Limit to num keys
+local mainMod   = mods.main
+local resizeMod = mods.resize
 
 -----------------------------------------------------------------------------------
 -- Main
 -----------------------------------------------------------------------------------
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(apps.menu))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("uwsm stop"))
 
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -33,7 +29,6 @@ hl.bind(mainMod .. " + SHIFT + t", hl.dsp.focus({ window = "tiled" }))
 
 -- Shrink horizontal to half screen size
 hl.bind(mainMod .. " + SHIFT + t", hl.dsp.focus({ window = "tiled" }))
--- hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.focus({ next = true }))  -- or similar cyclenext variant
 
 -- Toggle floating (your "promote to floating" key)
 hl.bind(mainMod .. " + f", function()
@@ -103,20 +98,6 @@ hl.bind(resizeMod .. "+ 1", function() resizeByScreen(0.25, 0.7) end)
 hl.bind(resizeMod .. "+ 2", function() resizeByScreen(0.33, 1) end)
 hl.bind(resizeMod .. "+ 3", function() resizeByScreen(0.5, 1) end)
 hl.bind(resizeMod .. "+ 4", function() resizeByScreen(1, 1) end)
-
------------------------------------------------------------------------------------
--- Apps
------------------------------------------------------------------------------------
-hl.bind(openAppMod .. " + T", hl.dsp.exec_cmd(apps.terminal))
-hl.bind(openAppMod .. " + B", hl.dsp.exec_cmd(apps.browser))
-hl.bind(openAppMod .. " + F", hl.dsp.exec_cmd(apps.file_manager))
-hl.bind(openAppMod .. " + S", hl.dsp.exec_cmd(apps.steam))
-hl.bind(openAppMod .. " + SHIFT + S", hl.dsp.exec_cmd(apps.steam .. " -silent steam://open/gamepadui"))
-hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(apps.grok))
-hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(apps.discord))
-hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(apps.password_manager))
-hl.bind(openAppMod .. " + A", hl.dsp.exec_cmd(apps.audio_settings))
-hl.bind(openAppMod .. " + M", hl.dsp.exec_cmd(apps.spotify))
 
 -----------------------------------------------------------------------------------
 -- Workspaces

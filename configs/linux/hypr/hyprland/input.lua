@@ -1,6 +1,5 @@
 ---------------
 ---- INPUT ----
----
 ---------------
 
 -- Mimics MacOS acceleration curve. Grok-written
@@ -42,12 +41,9 @@ hl.config({
         kb_model       = "",
         kb_options     = "ctrl:nocaps",
         kb_rules       = "",
-
         follow_mouse   = 1,
-
         sensitivity    = 1,
         accel_profile  = build_accel_profile(0.18),
-
         -- Mimic MacOS
         natural_scroll = true,
     },
