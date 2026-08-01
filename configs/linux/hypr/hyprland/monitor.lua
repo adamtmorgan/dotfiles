@@ -12,7 +12,7 @@ hl.monitor({
 
 -- LG Ultrawide 5k2k
 hl.monitor({
-    output   = "DP-1",
+    output   = "desc:LG Electronics LG ULTRAGEAR+ 510RMGC70655",
     mode     = "preferred",
     position = "auto",
     scale    = "1.25"
