@@ -116,6 +116,7 @@ hl.bind(openAppMod .. " + G", hl.dsp.exec_cmd(apps.grok))
 hl.bind(openAppMod .. " + D", hl.dsp.exec_cmd(apps.discord))
 hl.bind(openAppMod .. " + P", hl.dsp.exec_cmd(apps.password_manager))
 hl.bind(openAppMod .. " + A", hl.dsp.exec_cmd(apps.audio_settings))
+hl.bind(openAppMod .. " + M", hl.dsp.exec_cmd(apps.spotify))
 
 -----------------------------------------------------------------------------------
 -- Workspaces

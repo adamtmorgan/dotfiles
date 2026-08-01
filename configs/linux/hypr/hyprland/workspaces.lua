@@ -32,6 +32,12 @@ hl.window_rule({
   workspace = "special:comms",
 })
 
+-- Spotify (Brave PWA) → comms
+hl.window_rule({
+  match = { class = apps.class.spotify },
+  workspace = "special:comms",
+})
+
 --------------------------------------------------
 --- Scratchpad Space - Usually an AI chat with
 --- other random things.
