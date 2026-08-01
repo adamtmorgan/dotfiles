@@ -18,24 +18,24 @@ hl.workspace_rule({
 -- that should stay on the current workspace, not pull open special:1password.
 
 --------------------------------------------------
---- Comms Workspace (Discord)
+--- Media Workspace (Discord, Spotify, etc.)
 --------------------------------------------------
 
 hl.workspace_rule({
-  workspace = "special:comms",
+  workspace = "special:media",
   on_created_empty = apps.discord,
   persistent = true,
 })
 
 hl.window_rule({
   match = { class = apps.class.discord },
-  workspace = "special:comms",
+  workspace = "special:media",
 })
 
--- Spotify (Brave PWA) → comms
+-- Spotify (Brave PWA) → media
 hl.window_rule({
   match = { class = apps.class.spotify },
-  workspace = "special:comms",
+  workspace = "special:media",
 })
 
 --------------------------------------------------

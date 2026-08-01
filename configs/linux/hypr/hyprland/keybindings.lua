@@ -122,7 +122,7 @@ hl.bind(openAppMod .. " + M", hl.dsp.exec_cmd(apps.spotify))
 -- Workspaces
 -----------------------------------------------------------------------------------
 hl.bind(mainMod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("1password"))
-hl.bind(mainMod .. " + BRACKETRIGHT", hl.dsp.workspace.toggle_special("comms"))
+hl.bind(mainMod .. " + BRACKETRIGHT", hl.dsp.workspace.toggle_special("media"))
 hl.bind(mainMod .. " + BRACKETLEFT", hl.dsp.workspace.toggle_special("scratchpad"))
 
 -----------------------------------------------------------------------------------
