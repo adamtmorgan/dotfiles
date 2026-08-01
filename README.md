@@ -65,6 +65,8 @@ On Linux, `disperse.sh` also links UWSM env files and systemd user units, then e
 
 Session environment for Hyprland under UWSM lives in `~/.config/uwsm/env` and `~/.config/uwsm/env-hyprland` (not `hl.env` in Hyprland).
 
+Default applications (browser, file manager, video player, text editor, etc.) are tracked in `configs/linux/mimeapps.list` and linked to `~/.config/mimeapps.list`. Text files open in Neovim via a Ghostty window (`configs/linux/applications/nvim-ghostty.desktop`).
+
 ### Mise-managed CLIs
 
 The mise global config manages most of the CLIs here. Calling `mise install` will

@@ -178,8 +178,18 @@ if [[ "$OS" == "Linux" ]]; then
     # Hyprland and hypr configs
     try_link "Hypr config" "$LINUX_CONFIGS/hypr" "$HOME_CONFIG/hypr"
 
+    # Default apps for file types / URL schemes
+    try_link "MIME defaults" "$LINUX_CONFIGS/mimeapps.list" "$HOME_CONFIG/mimeapps.list"
+
+    # Desktop entries (xdg-open / Dolphin "Open with")
+    create_path "applications" "$HOME/.local/share/applications"
+    try_link "Neovim Ghostty desktop" "$LINUX_CONFIGS/applications/nvim-ghostty.desktop" "$HOME/.local/share/applications/nvim-ghostty.desktop"
+    update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+
     # Link custom binaries/scripts
     create_path "~/bin" "$HOME/bin"
+    try_link "nvim-ghostty launcher" "$LINUX_CONFIGS/bin/nvim-ghostty" "$HOME/bin/nvim-ghostty"
+    chmod +x "$LINUX_CONFIGS/bin/nvim-ghostty" "$HOME/bin/nvim-ghostty" 2>/dev/null || true
 
     # --------------------------------------------------
     # systemd user services (after all linking)

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim (Ghostty)
+Comment=Edit files in Neovim in a new Ghostty window
+Exec=uwsm app -- nvim-ghostty %F
+Icon=nvim
+Terminal=false
+Categories=Utility;TextEditor;
+StartupNotify=false
+MimeType=text/plain;text/markdown;text/x-markdown;text/csv;text/css;text/javascript;application/javascript;text/typescript;application/typescript;application/json;application/xml;text/xml;application/x-yaml;text/yaml;text/x-yaml;application/toml;text/x-toml;text/x-python;text/x-script.python;application/x-shellscript;text/x-shellscript;text/x-sh;text/x-lua;text/x-rust;text/rust;text/x-go;text/x-c;text/x-c++src;text/x-chdr;text/x-c++hdr;text/x-java;text/x-java-source;text/x-csrc;text/x-diff;text/x-patch;text/x-log;text/x-cmake;application/x-wine-extension-ini;

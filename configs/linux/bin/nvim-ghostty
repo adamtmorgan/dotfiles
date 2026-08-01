@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Open file(s) in Neovim inside a new Ghostty window (for xdg-open / Dolphin).
+set -euo pipefail
+
+NVIM="${HOME}/.local/share/mise/shims/nvim"
+if [[ ! -x "$NVIM" ]]; then
+  NVIM="$(command -v nvim)"
+fi
+
+exec ghostty -e "$NVIM" "$@"
