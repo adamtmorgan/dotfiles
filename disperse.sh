@@ -159,6 +159,10 @@ if [[ "$OS" == "Linux" ]]; then
     try_link "wallpaper-cycle.service" "$LINUX_CONFIGS/systemd/user/wallpaper-cycle.service" "$HOME_CONFIG/systemd/user/wallpaper-cycle.service"
     try_link "wallpaper-initial.service" "$LINUX_CONFIGS/systemd/user/wallpaper-initial.service" "$HOME_CONFIG/systemd/user/wallpaper-initial.service"
     try_link "wallpaper-cycle.timer" "$LINUX_CONFIGS/systemd/user/wallpaper-cycle.timer" "$HOME_CONFIG/systemd/user/wallpaper-cycle.timer"
+    try_link "quickshell.service" "$LINUX_CONFIGS/systemd/user/quickshell.service" "$HOME_CONFIG/systemd/user/quickshell.service"
+
+    # Quickshell
+    try_link "Quickshell" "$LINUX_CONFIGS/quickshell" "$HOME_CONFIG/quickshell"
 
     # xdg-desktop-portal
     try_link "xdg-desktop-portal config" "$LINUX_CONFIGS/xdg-desktop-portal" "$HOME_CONFIG/xdg-desktop-portal"
@@ -207,8 +211,20 @@ if [[ "$OS" == "Linux" ]]; then
     rm -f "$HOME_CONFIG/systemd/user/awww-ready.path"
     systemctl --user stop awww-ready.path 2>/dev/null || true
 
-    echo_step "Enabling awww-daemon.service, wallpaper-initial.service, wallpaper-cycle.timer, cliphist.service..."
-    systemctl --user enable awww-daemon.service wallpaper-initial.service wallpaper-cycle.timer cliphist.service
+    echo_step "Enabling awww-daemon.service..."
+    systemctl --user enable awww-daemon.service
+
+    echo_step "Enabling wallpaper-initial.service..."
+    systemctl --user enable wallpaper-initial.service
+
+    echo_step "Enabling wallpaper-cycle.timer..."
+    systemctl --user enable wallpaper-cycle.timer
+
+    echo_step "Enabling cliphist.service..."
+    systemctl --user enable cliphist.service
+
+    echo_step "Enabling quickshell.service..."
+    systemctl --user enable quickshell.service
 
     echo_step "Starting awww-daemon.service..."
     systemctl --user start awww-daemon.service
@@ -218,6 +234,9 @@ if [[ "$OS" == "Linux" ]]; then
 
     echo_step "Starting cliphist.service..."
     systemctl --user start cliphist.service
+
+    echo_step "Starting quickshell.service..."
+    systemctl --user start quickshell.service
 
     echo
     echo_done "Systemd user units configured."

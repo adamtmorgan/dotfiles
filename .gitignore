@@ -27,3 +27,6 @@ dist-ssr
 
 # Sessions are stored in the config root
 wezterm_state_*.json
+
+# Quickshell manages this as a machine-specific symlink into a runtime VFS
+**/.qmlls.ini

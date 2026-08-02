@@ -13,6 +13,8 @@ local resizeMod = mods.resize
 -----------------------------------------------------------------------------------
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("uwsm stop"))
 
+hl.bind(mainMod .. " + B", hl.dsp.global("quickshell:barToggle"))
+
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
