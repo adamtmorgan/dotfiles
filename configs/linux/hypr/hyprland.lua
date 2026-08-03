@@ -7,6 +7,7 @@ require("hyprland/behavior")
 require("hyprland/cursor")
 require("hyprland/env")
 require("hyprland/input")
+require("hyprland/single_window_pseudo") -- before apps so solo-unset runs before Steam Friends splitratio
 require("hyprland/apps") -- app cmds, window rules, launch binds
 require("hyprland/keybindings")
 require("hyprland/monitor")
