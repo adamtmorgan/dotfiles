@@ -3,6 +3,8 @@
 hl.config({
     dwindle = {
         preserve_split = true,
+        -- 0 = follow mouse, 1 = new on left/top, 2 = new on right/bottom
+        force_split = 2,
     },
 })
 

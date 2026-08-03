@@ -80,26 +80,37 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. " + e", hl.dsp.layout("splitratio 1.0 exact"))
 
 -----------------------------------------------------------------------------------
--- Resizing
+-- Resizing (SUPER + ALT + 1..4)
 -----------------------------------------------------------------------------------
+-- Widths are logical pixels (scale-aware). Height uses the logical monitor size.
 
-local resizeByScreen = function(width_ratio, height_ratio)
+local RESIZE_WIDTHS = {
+    1200,  -- 1: xs (use with lower height)
+    1400, -- 2: s
+    1900, -- 3: medium (matches solo pseudo default)
+    2400, -- 4: large
+}
+
+---@param width number|nil logical px; nil = full monitor width
+---@param height_ratio number fraction of logical monitor height (1 = full)
+local function resizeWindow(width, height_ratio)
     local mon = hl.get_active_monitor()
     if not mon then return end
 
-    local width = math.floor(mon.width * width_ratio)
-    local height = math.floor(mon.height * height_ratio)
+    local mon_w = mon.width / mon.scale
+    local mon_h = mon.height / mon.scale
     hl.dispatch(hl.dsp.window.resize({
-        x = width,
-        y = height,
-        relative = false
+        x = math.floor(width or mon_w),
+        y = math.floor(mon_h * height_ratio),
+        relative = false,
     }))
 end
 
-hl.bind(resizeMod .. "+ 1", function() resizeByScreen(0.25, 0.7) end)
-hl.bind(resizeMod .. "+ 2", function() resizeByScreen(0.33, 1) end)
-hl.bind(resizeMod .. "+ 3", function() resizeByScreen(0.5, 1) end)
-hl.bind(resizeMod .. "+ 4", function() resizeByScreen(1, 1) end)
+hl.bind(resizeMod .. "+ 1", function() resizeWindow(RESIZE_WIDTHS[1], 0.8) end)
+hl.bind(resizeMod .. "+ 2", function() resizeWindow(RESIZE_WIDTHS[2], 1) end)
+hl.bind(resizeMod .. "+ 3", function() resizeWindow(RESIZE_WIDTHS[3], 1) end)
+hl.bind(resizeMod .. "+ 4", function() resizeWindow(RESIZE_WIDTHS[4], 1) end)
+hl.bind(resizeMod .. "+ 5", function() resizeWindow(nil, 1) end)
 
 -----------------------------------------------------------------------------------
 -- Workspaces
