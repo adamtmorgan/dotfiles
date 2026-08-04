@@ -3,6 +3,7 @@
 -- When a normal workspace transitions to exactly one tiled window (0→1 or >1→1),
 -- enable pseudo tiling and shrink to a fixed logical width at full height.
 -- Leaving solo (1→2+) disables pseudo on that window so normal tiling resumes.
+-- Moving onto an empty workspace enables solo mode; onto an occupied one disables it.
 
 local utils = require("hyprland/utils")
 local resize = require("hyprland/resize")
@@ -107,13 +108,30 @@ hl.on("window.move_to_workspace", function(w, dest_ws)
     local prev_id = win_ws[addr]
     local dest = dest_ws or w.workspace
 
+    -- Source workspace: remaining window may become solo (or empty).
     if prev_id and (not dest or prev_id ~= dest.id) then
         sync_workspace(hl.get_workspace(prev_id), addr)
     end
 
-    if dest then
-        win_ws[addr] = dest.id
-        sync_workspace(dest)
+    if not dest then return end
+    win_ws[addr] = dest.id
+    if dest.special then return end
+
+    local wins = utils.tiled_windows(dest)
+    track_windows(dest, wins)
+    counts[dest.id] = #wins
+
+    if not utils.is_countable(w) then return end
+
+    if #wins == 1 then
+        -- Destination was empty: solo pseudo + default size.
+        apply_narrow(w)
+    else
+        -- Destination already had window(s): force pseudo off for all tiled.
+        clear_narrowed(dest.id)
+        for _, win in ipairs(wins) do
+            utils.pseudo_off(win)
+        end
     end
 end)
 
