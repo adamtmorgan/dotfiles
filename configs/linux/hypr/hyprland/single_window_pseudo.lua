@@ -48,7 +48,18 @@ local function apply_narrow(win)
     end
 
     utils.pseudo_on(win)
-    resize.solo(win)
+
+    -- Pseudo must be active before resize sticks; layout may still be settling
+    -- after a sibling closed/moved, so apply size on the next tick.
+    local addr = win.address
+    hl.timer(function()
+        local w = hl.get_window("address:" .. addr)
+        if not w or not utils.is_countable(w) then return end
+        local cur = w.workspace
+        if not should_manage(cur) then return end
+        if #utils.tiled_windows(cur) ~= 1 then return end
+        resize.solo(w)
+    end, { timeout = 1, type = "oneshot" })
 end
 
 ---@param ws_id integer
@@ -71,8 +82,12 @@ local function sync_workspace(ws, exclude_addr)
     local curr = #wins
     counts[id] = curr
 
-    if curr == 1 and (prev == 0 or prev > 1) then
-        apply_narrow(wins[1])
+    if curr == 1 then
+        local sole = wins[1]
+        -- Become solo (0→1 / >1→1), or recover if we missed a prior narrow.
+        if prev ~= 1 or narrowed[id] ~= sole.address then
+            apply_narrow(sole)
+        end
     elseif prev == 1 and curr ~= 1 then
         -- Left solo (0 or 2+): only disable the window we narrowed.
         clear_narrowed(id)
@@ -108,10 +123,18 @@ hl.on("window.close", function(w)
     local prev_id = win_ws[addr]
     win_ws[addr] = nil
 
+    local ws_id = (ws and ws.id) or prev_id
     if ws then
         sync_workspace(ws, addr)
     elseif prev_id then
         sync_workspace(hl.get_workspace(prev_id), addr)
+    end
+
+    -- After unmap settles, re-sync so the remaining window reliably gets solo size.
+    if ws_id then
+        hl.timer(function()
+            sync_workspace(hl.get_workspace(ws_id))
+        end, { timeout = 1, type = "oneshot" })
     end
 end)
 
@@ -124,6 +147,11 @@ hl.on("window.move_to_workspace", function(w, dest_ws)
     -- Source workspace: remaining window may become solo (or empty).
     if prev_id and (not dest or prev_id ~= dest.id) then
         sync_workspace(hl.get_workspace(prev_id), addr)
+        -- Re-sync after the move settles so the leftover window expands.
+        local source_id = prev_id
+        hl.timer(function()
+            sync_workspace(hl.get_workspace(source_id))
+        end, { timeout = 1, type = "oneshot" })
     end
 
     if not dest then return end
