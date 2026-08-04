@@ -1,9 +1,10 @@
 -- NOTE: AI-authored
 
--- When a normal workspace transitions to exactly one tiled window (0→1 or >1→1),
+-- When a workspace transitions to exactly one tiled window (0→1 or >1→1),
 -- enable pseudo tiling and shrink to a fixed logical width at full height.
 -- Leaving solo (1→2+) disables pseudo on that window so normal tiling resumes.
 -- Moving onto an empty workspace enables solo mode; onto an occupied one disables it.
+-- Applies to normal and special workspaces except special:1password.
 
 local utils = require("hyprland/utils")
 local resize = require("hyprland/resize")
@@ -17,6 +18,18 @@ local win_ws = {}
 -- Workspace id → address of the window we put into solo pseudo mode.
 ---@type table<integer, string>
 local narrowed = {}
+
+--- Whether solo-pseudo behavior should run on this workspace.
+---@param ws HL.Workspace|nil
+---@return boolean
+local function should_manage(ws)
+    if not ws then return false end
+    -- Exclude the 1Password scratch space only.
+    if ws.special and (ws.name == "1password" or ws.config_name == "special:1password") then
+        return false
+    end
+    return true
+end
 
 --- Remember which workspace each countable window currently lives on.
 ---@param ws HL.Workspace
@@ -49,7 +62,7 @@ end
 ---@param ws HL.Workspace|nil
 ---@param exclude_addr string|nil
 local function sync_workspace(ws, exclude_addr)
-    if not ws or ws.special then return end
+    if not should_manage(ws) then return end
 
     local id = ws.id
     local prev = counts[id] or 0
@@ -71,7 +84,7 @@ local function seed_counts()
     win_ws = {}
     narrowed = {}
     for _, ws in ipairs(hl.get_workspaces()) do
-        if not ws.special then
+        if should_manage(ws) then
             local wins = utils.tiled_windows(ws)
             track_windows(ws, wins)
             counts[ws.id] = #wins
@@ -115,7 +128,7 @@ hl.on("window.move_to_workspace", function(w, dest_ws)
 
     if not dest then return end
     win_ws[addr] = dest.id
-    if dest.special then return end
+    if not should_manage(dest) then return end
 
     local wins = utils.tiled_windows(dest)
     track_windows(dest, wins)

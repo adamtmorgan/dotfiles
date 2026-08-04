@@ -9,7 +9,7 @@ local sizes = {
     m  = 1900,
     l  = 2400,
 }
-sizes.solo = sizes.m -- single-window pseudo default
+sizes.solo = sizes.l -- single-window pseudo default
 sizes.presets = { sizes.xs, sizes.s, sizes.m, sizes.l } -- SUPER+ALT 1..4
 
 local M = {

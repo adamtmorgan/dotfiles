@@ -99,6 +99,11 @@ hl.bind(mainMod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("1password"))
 hl.bind(mainMod .. " + BRACKETRIGHT", hl.dsp.workspace.toggle_special("media"))
 hl.bind(mainMod .. " + BRACKETLEFT", hl.dsp.workspace.toggle_special("scratchpad"))
 
+-- Move active window onto a special workspace (same keys + SHIFT)
+hl.bind(mainMod .. " + SHIFT + BACKSLASH", hl.dsp.window.move({ workspace = "special:1password" }))
+hl.bind(mainMod .. " + SHIFT + BRACKETRIGHT", hl.dsp.window.move({ workspace = "special:media" }))
+hl.bind(mainMod .. " + SHIFT + BRACKETLEFT", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+
 -----------------------------------------------------------------------------------
 -- Laptop multimedia keys for volume and LCD brightness
 -----------------------------------------------------------------------------------
