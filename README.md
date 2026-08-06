@@ -59,7 +59,6 @@ $ eval "$(/opt/homebrew/bin/brew shellenv)"
 On Linux, `disperse.sh` also links UWSM env files and systemd user units, then enables:
 
 - `awww-daemon.service`
-- `wallpaper-initial.service`
 - `wallpaper-cycle.timer`
 - `cliphist.service`
 

@@ -1,11 +1,8 @@
 [Unit]
-Description=awww Wallpaper Cycle
-PartOf=graphical-session.target
+Description=Set a random awww wallpaper
 After=awww-daemon.service
 Requires=awww-daemon.service
 
 [Service]
 Type=oneshot
-ExecStartPre=%h/.config/hypr/scripts/wait-awww-ready.sh
 ExecStart=%h/.config/hypr/scripts/cycle-awww-wallpaper.sh "%h/wallpapers/Fractal Glass/Favorites/"
-Nice=10

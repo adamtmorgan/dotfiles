@@ -157,7 +157,6 @@ if [[ "$OS" == "Linux" ]]; then
     fi
     try_link "awww-daemon.service" "$LINUX_CONFIGS/systemd/user/awww-daemon.service" "$HOME_CONFIG/systemd/user/awww-daemon.service"
     try_link "wallpaper-cycle.service" "$LINUX_CONFIGS/systemd/user/wallpaper-cycle.service" "$HOME_CONFIG/systemd/user/wallpaper-cycle.service"
-    try_link "wallpaper-initial.service" "$LINUX_CONFIGS/systemd/user/wallpaper-initial.service" "$HOME_CONFIG/systemd/user/wallpaper-initial.service"
     try_link "wallpaper-cycle.timer" "$LINUX_CONFIGS/systemd/user/wallpaper-cycle.timer" "$HOME_CONFIG/systemd/user/wallpaper-cycle.timer"
     try_link "quickshell.service" "$LINUX_CONFIGS/systemd/user/quickshell.service" "$HOME_CONFIG/systemd/user/quickshell.service"
 
@@ -204,18 +203,19 @@ if [[ "$OS" == "Linux" ]]; then
     echo_step "Reloading systemd user daemon..."
     systemctl --user daemon-reload
 
-    echo_step "Clearing obsolete wallpaper path units..."
-    # Clear obsolete enablement without touching unit-file symlinks (disable can delete them)
-    rm -f "$HOME_CONFIG/systemd/user/graphical-session.target.wants/wallpaper-cycle.service"
-    rm -f "$HOME_CONFIG/systemd/user/graphical-session.target.wants/awww-ready.path"
-    rm -f "$HOME_CONFIG/systemd/user/awww-ready.path"
-    systemctl --user stop awww-ready.path 2>/dev/null || true
+    echo_step "Clearing obsolete wallpaper units..."
+    # Clear obsolete enablement/files without touching current unit-file symlinks
+    systemctl --user disable --now wallpaper-initial.service 2>/dev/null || true
+    systemctl --user stop awww-ready.path wallpaper-cycle-retry.timer 2>/dev/null || true
+    rm -f \
+        "$HOME_CONFIG/systemd/user/wallpaper-initial.service" \
+        "$HOME_CONFIG/systemd/user/awww-ready.path" \
+        "$HOME_CONFIG/systemd/user/graphical-session.target.wants/wallpaper-cycle.service" \
+        "$HOME_CONFIG/systemd/user/graphical-session.target.wants/wallpaper-initial.service" \
+        "$HOME_CONFIG/systemd/user/graphical-session.target.wants/awww-ready.path"
 
     echo_step "Enabling awww-daemon.service..."
     systemctl --user enable awww-daemon.service
-
-    echo_step "Enabling wallpaper-initial.service..."
-    systemctl --user enable wallpaper-initial.service
 
     echo_step "Enabling wallpaper-cycle.timer..."
     systemctl --user enable wallpaper-cycle.timer

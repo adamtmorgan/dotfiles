@@ -1,13 +1,12 @@
 [Unit]
-Description=Run wallpaper cycle every 30 minutes
-After=graphical-session.target
-Requires=awww-daemon.service
+Description=Rotate wallpaper every 30 minutes
 
 [Timer]
-OnCalendar=*:0/30
+# First timed rotation 30m after the timer starts; then every 30m after each run.
+# Initial wallpaper is handled by awww-daemon ExecStartPost.
+OnActiveSec=30min
+OnUnitActiveSec=30min
 Persistent=true
-RandomizedDelaySec=30
-Unit=wallpaper-cycle.service
 
 [Install]
 WantedBy=timers.target

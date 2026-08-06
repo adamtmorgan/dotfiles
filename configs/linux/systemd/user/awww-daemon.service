@@ -8,10 +8,10 @@ Requisite=graphical-session.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/awww-daemon
+# Brief settle so the socket is accepting; '-' keeps the daemon up if this fails
+ExecStartPost=-/bin/bash -c 'sleep 1; exec "%h/.config/hypr/scripts/cycle-awww-wallpaper.sh" "%h/wallpapers/Fractal Glass/Favorites/"'
 Restart=on-failure
 RestartSec=3
-# Optional but helps on some AMD + Hyprland setups
-# Environment=RUST_BACKTRACE=1
 
 [Install]
 WantedBy=graphical-session.target
