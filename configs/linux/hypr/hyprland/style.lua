@@ -32,7 +32,7 @@ hl.config({
         blur             = {
             enabled  = true,
             size     = 30,
-            passes   = 1,
+            passes   = 4, -- I have a decent gpu
             vibrancy = 0.1696,
         },
     },
@@ -71,3 +71,10 @@ hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2, spring = "slide
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2, spring = "slideWorkspace", style = "slidefade 1%" })
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1, spring = "popupWorkspace", style = "slidevert 1%" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
+
+-- Backdrop blur for the Quickshell status pill (namespace from `hyprctl layers`)
+hl.layer_rule({
+    match        = { namespace = "quickshell" },
+    blur         = true,
+    ignore_alpha = 0.5,
+})

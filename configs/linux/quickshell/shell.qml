@@ -6,28 +6,42 @@ import QtQuick
 Scope {
   id: root
 
-  property bool barVisible: true
+  property bool barVisible: false
 
   PanelWindow {
     id: bar
 
     visible: root.barVisible
     exclusiveZone: root.barVisible ? height : 0
-    color: "#1a1b26"
+    color: "transparent"
 
     anchors {
       top: true
-      left: true
-      right: true
     }
 
-    implicitHeight: 30
+    margins {
+      top: 12
+    }
 
-    Text {
-      anchors.centerIn: parent
-      text: Qt.formatDateTime(clock.date, "HH:mm")
-      color: "#c0caf5"
-      font.pixelSize: 14
+    implicitWidth: pill.implicitWidth
+    implicitHeight: pill.implicitHeight
+
+    Rectangle {
+      id: pill
+      implicitWidth: clockText.implicitWidth + 34
+      implicitHeight: 32
+      radius: height / 2
+      color: "#991a1b26"
+      border.width: 1
+      border.color: "#33c0caf5"
+
+      Text {
+        id: clockText
+        anchors.centerIn: parent
+        text: Qt.formatDateTime(clock.date, "h:mm AP")
+        color: "#c0caf5"
+        font.pixelSize: 14
+      }
     }
   }
 
