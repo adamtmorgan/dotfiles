@@ -1,8 +1,8 @@
 [Unit]
-Description=Set a random awww wallpaper
+Description=Apply wallpaper (cycle or static, per wallpaper.conf)
 After=awww-daemon.service
 Requires=awww-daemon.service
 
 [Service]
 Type=oneshot
-ExecStart=%h/.config/hypr/scripts/cycle-awww-wallpaper.sh "%h/wallpapers/Fractal Glass/Favorites/"
+ExecStart=%h/.config/hypr/scripts/cycle-awww-wallpaper.sh

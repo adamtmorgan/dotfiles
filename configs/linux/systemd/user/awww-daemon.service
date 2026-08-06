@@ -9,7 +9,7 @@ Requisite=graphical-session.target
 Type=simple
 ExecStart=/usr/bin/awww-daemon
 # Brief settle so the socket is accepting; '-' keeps the daemon up if this fails
-ExecStartPost=-/bin/bash -c 'sleep 1; exec "%h/.config/hypr/scripts/cycle-awww-wallpaper.sh" "%h/wallpapers/Fractal Glass/Favorites/"'
+ExecStartPost=-/bin/bash -c 'sleep 1; exec %h/.config/hypr/scripts/cycle-awww-wallpaper.sh'
 Restart=on-failure
 RestartSec=3
 
