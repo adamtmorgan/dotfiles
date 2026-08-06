@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Brave
+Comment=Web browser
+Exec=brave %U
+TryExec=brave
+Icon=brave-browser
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true
+MimeType=text/html;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/about;x-scheme-handler/unknown;

@@ -184,10 +184,22 @@ if [[ "$OS" == "Linux" ]]; then
     # Default apps for file types / URL schemes
     try_link "MIME defaults" "$LINUX_CONFIGS/mimeapps.list" "$HOME_CONFIG/mimeapps.list"
 
-    # Desktop entries (xdg-open / Dolphin "Open with")
+    # XDG app menu for KService/Dolphin (UWSM sets XDG_MENU_PREFIX=hyprland-)
+    create_path "menus" "$HOME_CONFIG/menus"
+    try_link "XDG applications menu" "$LINUX_CONFIGS/menus/hyprland-applications.menu" "$HOME_CONFIG/menus/hyprland-applications.menu"
+
+    # Desktop entries for mimeapps.list defaults.
+    # Simplified local copies: some system .desktop files (heavy i18n / complex
+    # actions) are not indexed by KService outside Plasma.
     create_path "applications" "$HOME/.local/share/applications"
+    try_link "Brave desktop" "$LINUX_CONFIGS/applications/brave-browser.desktop" "$HOME/.local/share/applications/brave-browser.desktop"
+    try_link "Clapper desktop" "$LINUX_CONFIGS/applications/com.github.rafostar.Clapper.desktop" "$HOME/.local/share/applications/com.github.rafostar.Clapper.desktop"
+    try_link "Discord deep-link desktop" "$LINUX_CONFIGS/applications/discord-455712169795780630.desktop" "$HOME/.local/share/applications/discord-455712169795780630.desktop"
+    try_link "Dolphin desktop" "$LINUX_CONFIGS/applications/org.kde.dolphin.desktop" "$HOME/.local/share/applications/org.kde.dolphin.desktop"
+    try_link "Loupe desktop" "$LINUX_CONFIGS/applications/org.gnome.Loupe.desktop" "$HOME/.local/share/applications/org.gnome.Loupe.desktop"
     try_link "Neovim Ghostty desktop" "$LINUX_CONFIGS/applications/nvim-ghostty.desktop" "$HOME/.local/share/applications/nvim-ghostty.desktop"
     update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+    kbuildsycoca6 --noincremental 2>/dev/null || true
 
     # Link custom binaries/scripts
     create_path "~/bin" "$HOME/bin"

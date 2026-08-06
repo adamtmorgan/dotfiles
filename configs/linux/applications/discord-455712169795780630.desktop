@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Discord Game Deep Link
+Exec=/usr/bin/dolphin-emu %u
+NoDisplay=true
+Categories=Network;
+MimeType=x-scheme-handler/discord-455712169795780630;

@@ -1,0 +1,17 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop.org/DTD Menu 1.0//EN"
+  "http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<!--
+  Required so KService/Dolphin can resolve .desktop apps outside Plasma.
+  UWSM sets XDG_MENU_PREFIX=hyprland-, which looks for this filename.
+-->
+<Menu>
+  <Name>Applications</Name>
+  <DefaultAppDirs/>
+  <DefaultDirectoryDirs/>
+  <DefaultLayout inline="false" show_empty="false">
+    <Merge type="all"/>
+  </DefaultLayout>
+  <Include>
+    <All/>
+  </Include>
+</Menu>
